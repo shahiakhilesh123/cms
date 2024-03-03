@@ -14,4 +14,46 @@ class MenuController extends Controller
             'menu' => $menus,
         ]);
     }
+
+    public function add(Request $request) {
+        $request->validate([
+            'menu_name' => 'required|string|max:255',
+            'type' => 'required|integer',
+            'menu_link' => 'required|string|max:255',
+            'menu_class'=>'required|string|max:255',
+        ]);
+        $menu = Menu::create([
+            'menu_name' => $request->menu_name,
+            'menu_id' => $request->menu_id,
+            'status' => '1',
+            'type' => $request->type,
+            'menu_link' => $request->menu_link,
+            'menu_class' => $request->menu_class,
+        ]);
+        return response()->json([
+            'status' => 'success',
+            'menu' => $menu,
+        ]);
+    }
+
+    public function edit(Request $request) {
+        $request->validate([
+            'menu_name' => 'required|string|max:255',
+            'type' => 'required|integer',
+            'menu_link' => 'required|string|max:255',
+            'menu_class'=>'required|string|max:255',
+        ]);
+        $menu = Menu::where('id', $request->id)->update([
+            'menu_name' => $request->menu_name,
+            'menu_id' => $request->menu_id,
+            'status' => '1',
+            'type' => $request->type,
+            'menu_link' => $request->menu_link,
+            'menu_class' => $request->menu_class,
+        ]);
+        return response()->json([
+            'status' => 'success',
+            'menu' => $menu,
+        ]);
+    }
 }
