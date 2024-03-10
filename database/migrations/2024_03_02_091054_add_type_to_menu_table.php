@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->integer('type')->unsigned()->nullable()->after('status');
-            $table->foreign('type')->references('id')->on('menu_type')->onDelete('SET NULL');
+            $table->integer('type_id')->unsigned()->nullable()->after('status');
         });
     }
 

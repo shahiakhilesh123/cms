@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+
+    public function type()
+    {
+        return $this->belongsTo(MenuType::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(MenuCategory::class);
+    }
 }

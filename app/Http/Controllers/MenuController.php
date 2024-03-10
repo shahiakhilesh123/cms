@@ -15,6 +15,10 @@ class MenuController extends Controller
         ]);
     }
 
+    public function MenuList(Request $request){
+        $data = Menu::all();
+        return view('admin/menuList')->with('data', $data);
+    } 
     public function add(Request $request) {
         $request->validate([
             'menu_name' => 'required|string|max:255',
