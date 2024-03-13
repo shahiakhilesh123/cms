@@ -21,7 +21,7 @@
             ->whereHas('category', function ($query) {
                 $query->where('category', 'Admin');
             })
-            ->get()->toArray();
+            ->where('menu_id', '=', 0)->get()->toArray();
             foreach($menus as $menu) {
               $subMenus = App\Models\Menu::where('menu_id', $menu['id'])->get(); 
               ?>

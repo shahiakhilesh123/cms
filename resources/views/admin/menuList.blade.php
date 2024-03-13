@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Simple Tables</h1>
+            <h1>Menu List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Simple Tables</li>
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Menu List</li>
             </ol>
           </div>
         </div>
@@ -27,17 +27,17 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Menus</h3>
 
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                <div class="card-tool s">
+                  <div class="input-group input-group-sm float-right" style="width: 150px;">
+                    <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
+                    <!-- <div class="input-group-append"> -->
+                      <a href="{{ url('addmenu') }}" class="btn btn-primary ">
+                        Add Menu
+                      </a>
+                    <!-- </div> -->
                   </div>
                 </div>
               </div>
@@ -47,41 +47,30 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
+                      <th>Menu Name</th>
+                      <th>Menu Link</th>
                       <th>Status</th>
-                      <th>Reason</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($menus as $menu)
                     <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>{{ $menu->id }}</td>
+                      <td>{{ $menu->menu_name }}</td>
+                      <td>{{ $menu->menu_link }}</td>
+                      <td>
+                        @if($menu->status == 1)
+                              Approve
+                        @else 
+                              Pending 
+                        @endif
+                      </td>
+                      <td>
+                        <a href="{{ url('editmenu') }}/{{$menu->id}}"><i class="fas fa-edit"></i></a>
+                      </td>
                     </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

@@ -26,7 +26,7 @@ class MenuTypeController extends Controller
             'menu_type' => $menu_type,
         ]);
     }
-
+    
     public function edit(Request $request){
         $request->validate([
             'id' => 'required|integer',

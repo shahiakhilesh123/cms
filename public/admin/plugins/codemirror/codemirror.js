@@ -2900,7 +2900,7 @@
   // Compute the default character width.
   function charWidth(display) {
     if (display.cachedCharWidth != null) { return display.cachedCharWidth }
-    var anchor = elt("span", "xxxxxxxxxx");
+    var anchor = elt("span", "");
     var pre = elt("pre", [anchor], "CodeMirror-line-like");
     removeChildrenAndAdd(display.measure, pre);
     var rect = anchor.getBoundingClientRect(), width = (rect.right - rect.left) / 10;
