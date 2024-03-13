@@ -33,7 +33,8 @@
               </h3>
             </div>
             <!-- /.card-header -->
-            <form action="{{ url('pages') }}'/'{{ $data['link'] }}" method="post">
+            <form action="{{ route('savePage.link', ['link' => base64_encode($data['link'])]) }}" method="post">
+            @csrf
               <div class="card-body p-0">
                 <textarea id="codeMirrorDemo" name="code_content" class="p-3">
                   {{trim($data['file'])}}

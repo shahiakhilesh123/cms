@@ -27,4 +27,4 @@ Route::get('/editmenu/{id}', [App\Http\Controllers\MenuController::class,'editme
 Route::post('/menuedit/{id}', [App\Http\Controllers\MenuController::class,'menuedit'])->name('menuedit');
 Route::get('/pages', [App\Http\Controllers\PageController::class,'index'])->name('pages');
 Route::get('/pages/{link})', [App\Http\Controllers\PageController::class,'editor'])->name('editor.link');
-Route::post('/pages/{link})', [App\Http\Controllers\PageController::class,'savePage'])->name('editor.savePage');
+Route::post('/pages/{link})', [App\Http\Controllers\PageController::class,'savePage'])->name('savePage.link');

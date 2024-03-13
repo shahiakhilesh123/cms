@@ -85,14 +85,20 @@ class PageController extends Controller
     }   
     public function editor(Request $request, $link)
     {
-        $path = getcwd().'/../'.base64_decode($link);
+        $link = base64_decode($link);
+        $path = getcwd().'/../'.$link;
         $myfile = fopen($path, "r") or die("Unable to open file!");
         $file = fread($myfile,filesize($path));
         fclose($myfile);
-        return view('admin/editor')->with('data', ['file'=>$file, 'link' => $path]);
+        return view('admin/editor')->with('data', ['file'=>$file, 'link' => $link]);
     }
     public function savePage(Request $request, $link)
     {
-        echo base64_decode($link);
+        $link = base64_decode($link);
+        $path = getcwd().'/../'.$link;
+        $myfile = fopen($path, "w") or die("Unable to open file!");
+        fwrite($myfile, $request->code_content);
+        fclose($myfile);
+        return redirect('/pages')->with('status', 'File updated!');
     }
 }
