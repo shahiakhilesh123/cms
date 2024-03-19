@@ -98,6 +98,15 @@ class MenuSeeder extends Seeder
                 "status" => "1",
                 "menu_link" => "/categories/add",
                 "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'File',
+                "menu_id" => "0",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/files",
+                "menu_class" => "fas fa-tachometer-alt"
             ]
         ]);
     }

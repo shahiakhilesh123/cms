@@ -36,3 +36,4 @@ Route::prefix('/categories')->group(function () {
     Route::get('/add', [App\Http\Controllers\CategoryController::class, 'addCategory'])->name('addCategory');
     Route::post('/add', [App\Http\Controllers\CategoryController::class, 'categoryAdd'])->name('categoryAdd');
 });
+Route::get('files',[App\Http\Controllers\FileController::class, 'index'])->name('fileList');

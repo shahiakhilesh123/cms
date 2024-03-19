@@ -15,10 +15,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        echo "this is test";
+        die();
         $request->validate([
             'email' => 'required|string',
             'password' => 'required|string',
         ]);
+        echo "this is test";
+        die();
         $credentials = $request->only('email', 'password');
 
         $token = Auth::attempt($credentials);
