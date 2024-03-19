@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +30,9 @@ Route::post('/menuedit/{id}', [App\Http\Controllers\MenuController::class,'menue
 Route::get('/pages', [App\Http\Controllers\PageController::class,'index'])->name('pages');
 Route::get('/pages/{link})', [App\Http\Controllers\PageController::class,'editor'])->name('editor.link');
 Route::post('/pages/{link})', [App\Http\Controllers\PageController::class,'savePage'])->name('savePage.link');
+Route::get('/blogs', [App\Http\Controllers\BlogController::class,'index'])->name('blogList');
+Route::prefix('/categories')->group(function () {
+    Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('categoryList');
+    Route::get('/add', [App\Http\Controllers\CategoryController::class, 'addCategory'])->name('addCategory');
+    Route::post('/add', [App\Http\Controllers\CategoryController::class, 'categoryAdd'])->name('categoryAdd');
+});

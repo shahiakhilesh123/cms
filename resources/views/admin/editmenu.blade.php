@@ -52,7 +52,7 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select Menus</label>
                       <select class="form-control" name="menu">
-                        <option value="">Select Menu</option>
+                        <option value="0">Select Menu</option>
                         @foreach($data['menus'] as $menu)
                           <option value="{{ $menu->id }}" <?php if($menu_data->menu_id == $menu->id) { echo "selected"; }?>>{{ $menu->menu_name }}</option>
                         @endforeach

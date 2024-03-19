@@ -43,7 +43,7 @@
           @error('password')
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-lock"> {{ $message }} </span>
             </div>
           </div>
           @enderror
