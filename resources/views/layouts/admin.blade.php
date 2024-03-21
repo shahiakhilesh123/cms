@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
 </head>
@@ -69,6 +71,8 @@
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('admin/plugins/chart.js/Chart.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Sparkline -->
 <script src="{{ asset('admin/plugins/sparklines/sparkline.js') }}"></script>
 <!-- JQVMap -->
@@ -92,6 +96,20 @@
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('admin/dist/js/pages/dashboard.js') }}"></script>
+<script>
+  $(function () {
+    $('.select2').select2({
+        multiple: true
+    });
+    // Summernote
+    $('#summernote').summernote()
 
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body>
 </html>

@@ -21,7 +21,7 @@ use App\Http\Controllers\MenuTypeController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::middleware('jwt.verify')->post('logout', 'AuthController@logout');
 // Route::get('/login', function  (Request $request){
 //     echo "this is test";
 // });

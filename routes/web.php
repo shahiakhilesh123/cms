@@ -37,3 +37,8 @@ Route::prefix('/categories')->group(function () {
     Route::post('/add', [App\Http\Controllers\CategoryController::class, 'categoryAdd'])->name('categoryAdd');
 });
 Route::get('files',[App\Http\Controllers\FileController::class, 'index'])->name('fileList');
+Route::prefix('/blogs')->group(function () {
+    Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('categoryList');
+    Route::get('/add', [App\Http\Controllers\BlogController::class, 'addBlog'])->name('addBlog');
+    Route::post('/add', [App\Http\Controllers\BlogController::class, 'blogAdd'])->name('blogAdd');
+});

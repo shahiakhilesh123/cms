@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
             $table->text('name');
-            $table->text('link');
-            $table->text('sort_description');
-            $table->string('image_ids');
-            $table->longText('description');
+            $table->text('link')->nullable();
+            $table->text('sort_description')->nullable();
+            $table->string('image_ids')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

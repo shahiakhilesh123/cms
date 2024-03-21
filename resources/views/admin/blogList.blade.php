@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>File List</h1>
+            <h1>Blog List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/home">Home</a></li>
-              <li class="breadcrumb-item active">File List</li>
+              <li class="breadcrumb-item active">Blog List</li>
             </ol>
           </div>
         </div>
@@ -27,15 +27,15 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Files</h3>
+                <h3 class="card-title">Blog</h3>
 
                 <div class="card-tool s">
                   <div class="input-group input-group-sm float-right" style="width: 150px;">
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('addmenu') }}" class="btn btn-primary ">
-                        Add File
+                      <a href="{{ url('blogs') }}/add" class="btn btn-primary ">
+                        Add Blog
                       </a>
                     <!-- </div> -->
                   </div>
@@ -43,28 +43,23 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-              @include('layouts.messages')
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>File Name</th>
-                      <th>File Size</th>
-                      <th>File Type</th>
-                      <th>File Path</th>
+                      <th>Blog Name</th>
+                      <th>Blog Link</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($files as $file)
+                    @foreach($blogs as $blog)
                     <tr>
-                      <td>{{ $file->id }}</td>
-                      <td>{{ $file->file_name }}</td>
-                      <td>{{ $file->file_size }}</td>
-                      <td>{{ $file->file_type }}</td>
-                      <td>{{ $file->file_path }}</td>
+                      <td>{{ $blog->id }}</td>
+                      <td>{{ $blog->name }}</td>
+                      <td>{{ $blog->link }}</td>                      
                       <td>
-                        <a href="{{ url('editmenu') }}/{{$file->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ url('editblog') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                     @endforeach

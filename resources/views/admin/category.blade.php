@@ -47,12 +47,27 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Name</th>
-                      <th>Menu Link</th>
-                      <th>Status</th>
+                      <th>Category Name</th>
+                      <th>Category Home Page status</th>
                       <th></th>
                     </tr>
                   </thead>
+                  @foreach($categories as $category)
+                    <tr>
+                      <td>{{ $category->id }}</td>
+                      <td>{{ $category->name}}</td>
+                      <td>
+                        @if($category->home_page_status == '1')
+                            Active
+                        @else 
+                            Not Active
+                        @endif
+                      </td>
+                      <td>
+                        <a href="{{ url('category') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
+                      </td>
+                    </tr>
+                  @endforeach
                   <tbody>
                     
                   </tbody>

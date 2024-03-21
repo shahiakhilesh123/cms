@@ -107,6 +107,33 @@ class MenuSeeder extends Seeder
                 "status" => "1",
                 "menu_link" => "/files",
                 "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'Blog',
+                "menu_id" => "0",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/files",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'Blog List',
+                "menu_id" => "11",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/blogs",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'Blog Add',
+                "menu_id" => "11",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/blogs/add",
+                "menu_class" => "fas fa-tachometer-alt"
             ]
         ]);
     }
