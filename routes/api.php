@@ -2,10 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TodoController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\MenuTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,34 +14,50 @@ use App\Http\Controllers\MenuTypeController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('jwt.verify')->post('logout', 'AuthController@logout');
-// Route::get('/login', function  (Request $request){
-//     echo "this is test";
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
 // });
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
-    Route::post('register', 'register');
-    Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
-});
-Route::controller(MenuTypeController::class)->group(function () {
-    Route::get('menu_type', 'index');
-    Route::post('add_menu_type', 'add');
-    Route::post('edit_menu_type', 'edit');
-});
-Route::controller(MenuController::class)->group(function () {
-    Route::get('menus', 'index');
-    Route::post('add_menu', 'add');
-    Route::post('edit_menu', 'edit');
-});
-Route::controller(TodoController::class)->group(function () {
-    Route::get('todos', 'index');
-    Route::post('todo', 'store');
-    Route::get('todo/{id}', 'show');
-    Route::put('todo/{id}', 'update');
-    Route::delete('todo/{id}', 'destroy');
-}); 
+//YesAway Api Routes
+Route::controller(App\Http\Controllers\Api\YesAwayApiController::class)
+    ->prefix('yesaway/v1')
+    ->group(function () {
+        Route::get('/locations','getAllLocations')->name('getYesAwayAllLocations');
+        Route::get('/location/{location_code}','getLocation')->name('getYesAwayLocation');
+        Route::get('/search/vehicles/test','searchVehiclesForLocationTest')->name('searchYesAwayVehiclesForLocationTest');
+        Route::post('/search/vehicles','searchVehiclesForLocation')->name('searchYesAwayVehiclesForLocation');
+    });
+
+//Nissa Api Routes
+Route::controller(App\Http\Controllers\Api\NissaApiController::class)
+    ->prefix('nissa/v1')
+    ->group(function () {
+        Route::get('/locations','getAllLocations')->name('getNissaAllLocations');
+        Route::post('/search/vehicles','searchVehiclesForLocation')->name('searchNissaVehiclesForLocation');
+    });    
+    
+
+//Easygo Api Routes
+Route::controller(App\Http\Controllers\Api\EasygoApiController::class)
+    ->prefix('easygo/v1')
+    ->group(function () {
+        Route::get('/locations','getAllLocations')->name('getEasygoAllLocations');
+        Route::post('/search/vehicles','searchVehiclesForLocation')->name('searchEasygoVehiclesForLocation');
+    });        
+
+//Easirent Api Routes
+Route::controller(App\Http\Controllers\Api\EasirentApiController::class)
+    ->prefix('easirent/v1')
+    ->group(function () {
+        Route::get('/locations','getAllLocations')->name('getEasirentAllLocations');
+        Route::get('/search/vehicles/test','searchVehiclesForLocationTest')->name('searchEasirentVehiclesForLocationTest');
+        Route::post('/search/vehicles','searchVehiclesForLocation')->name('searchEasirentVehiclesForLocation');
+        Route::get('/book/vehicle/test','bookVehicleForLocationTest')->name('bookVehicleForLocationTest');
+    });    
+    
+//Public Api
+Route::prefix('')
+    ->group(function () {
+    Route::post('/get_cars',[App\Http\Controllers\FilterController::class, 'callApi'])->name('callApi');
+    Route::get('/all_locations', [App\Http\Controllers\LocationController::class, 'getAllLocations'])->name('getAllLocations');
+});     

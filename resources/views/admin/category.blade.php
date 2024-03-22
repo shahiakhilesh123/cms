@@ -64,7 +64,7 @@
                         @endif
                       </td>
                       <td>
-                        <a href="{{ url('category') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ url('categories') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                   @endforeach
