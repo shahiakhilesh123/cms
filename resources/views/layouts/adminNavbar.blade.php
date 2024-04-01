@@ -16,12 +16,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault();
+            <a href="{{ asset('logout') }}"  class="nav-link" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ asset('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
         <!-- <a href="index3.html" class="nav-link">Logout</a> -->
