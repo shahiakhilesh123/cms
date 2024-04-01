@@ -51,7 +51,7 @@
                       <th>File Name</th>
                       <th>File Size</th>
                       <th>File Type</th>
-                      <th>File Path</th>
+                      <th>Image</th>
                       <!-- <th></th> -->
                     </tr> 
                   </thead>
@@ -62,7 +62,7 @@
                       <td>{{ $file->file_name }}</td>
                       <td>{{ $file->file_size }}</td>
                       <td>{{ $file->file_type }}</td>
-                      <td>{{ $file->full_path }}</td>
+                      <td><img src="{{ assets('files/').$file->file_name }}" style="width:15px; height:15px;"/></td>
                       <!-- <td>
                         <a href="{{ asset('editmenu') }}/{{$file->id}}"><i class="fas fa-edit"></i></a>
                       </td> -->
