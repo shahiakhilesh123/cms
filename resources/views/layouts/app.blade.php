@@ -5,9 +5,9 @@
     <script src="../assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $setting->meta_description }}">
-    <meta name="keywords" content="{{ $setting->keyword }}">
-    <title>{{ $setting->site_name }}</title>
+    <meta name="description" content="{{ isset($setting->meta_description) ? $setting->meta_description : '' }}">
+    <meta name="keywords" content="{{ isset($setting->keyword) ? $setting->keyword : '' }}">
+    <title>{{ isset($setting->site_name) ? $setting->site_name : '' }}</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -68,9 +68,9 @@
                         </div>
                         <div class="col-12 col-md-2">
                             <div class="nmf-social">
-                                <div class="nmf-social-itm"><a href="{{ $setting->youtube }}"><img src="{{ asset('frontend/images/yt.svg') }}" /></a></div>
-                                <div class="nmf-social-itm"><a href="{{ $setting->facebook }}"><img src="{{ asset('frontend/images/fb.svg') }}" /></a></div>
-                                <div class="nmf-social-itm"><a href="{{ $setting->instagram }}"><img src="{{ asset('frontend/images/insta.svg') }}" /></a></div>
+                                <div class="nmf-social-itm"><a href="{{ isset($setting->youtube) ? $setting->youtube : '' }}"><img src="{{ asset('frontend/images/yt.svg') }}" /></a></div>
+                                <div class="nmf-social-itm"><a href="{{ isset($setting->facebook) ? $setting->facebook : '' }}"><img src="{{ asset('frontend/images/fb.svg') }}" /></a></div>
+                                <div class="nmf-social-itm"><a href="{{ isset($setting->instagram) ? $setting->instagram : '' }}"><img src="{{ asset('frontend/images/insta.svg') }}" /></a></div>
                             </div>
                         </div>
                     </div>
@@ -144,14 +144,10 @@
                 <div class="row">
                     <div class="col-12 col-md-12">
                         <div class="nmf-qklinks-inner">
-                            <div class="nmf-qklinks-item"><a href="#">UP</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Bihar</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Delhi</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">MP</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Rajsthan</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Chatissgarh</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Jharkhand</a></div>
-                            <div class="nmf-qklinks-item"><a href="#">Maharashtra</a></div>
+                            <?php $states = App\Models\State::where('home_page_status', '1')->limit(8)->orderBy('id', 'DESC')->get()->all(); ?>
+                            @foreach($states as $state)
+                            <div class="nmf-qklinks-item"><a href="{{ asset('post')}}/{{$state->id}}">{{ $state->name}}</a></div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -165,9 +161,9 @@
                         <div class="nmf-smrgt">
                             <h5 class="text-white font-20 font-600">Social Media</h5>
                             <div class="nmf-icons">
-                                    <div class=""><a href="{{ $setting->youtube }}"><img src="{{ asset('frontend/images/ft-yt.svg') }}" /></a></div>
-                                    <div class=""><a href="{{ $setting->facebook }}"><img src="{{ asset('frontend/images/ft-fb.svg') }}" /></a></div>
-                                    <div class=""><a href="{{ $setting->instagram }}"><img src="{{ asset('frontend/images/ft-insta.svg') }}" /></a></div>
+                                    <div class=""><a href="{{ isset($setting->youtube) ? $setting->youtube : ''}}"><img src="{{ asset('frontend/images/ft-yt.svg') }}" /></a></div>
+                                    <div class=""><a href="{{ isset($setting->facebook) ? $setting->facebook : ''}}"><img src="{{ asset('frontend/images/ft-fb.svg') }}" /></a></div>
+                                    <div class=""><a href="{{ isset($setting->instagram) ? $setting->instagram : ''}}"><img src="{{ asset('frontend/images/ft-insta.svg') }}" /></a></div>
                             </div>
                             <p class="text-white font-20 font-600">+91-123456789</p>
                         </div>

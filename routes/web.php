@@ -48,3 +48,17 @@ Route::prefix('/blogs')->group(function () {
 });
 Route::get('/setting', [App\Http\Controllers\SettingController::class,'index'])->name('Setting');
 Route::post('/setting', [App\Http\Controllers\SettingController::class,'saveSetting'])->name('saveSetting');
+Route::prefix('/state')->group(function () {
+    Route::get('/', [App\Http\Controllers\StateController::class, 'index'])->name('stateList');
+    Route::get('/add', [App\Http\Controllers\StateController::class, 'add'])->name('addState');
+    Route::post('/add', [App\Http\Controllers\StateController::class, 'save'])->name('stateAdd');
+    Route::get('/edit/{id}', [App\Http\Controllers\StateController::class, 'edit'])->name('editState');
+    Route::post('/edit/{id}', [App\Http\Controllers\StateController::class, 'editSave'])->name('stateEdit');
+});
+Route::prefix('/district')->group(function () {
+    Route::get('/', [App\Http\Controllers\DistrictController::class, 'index'])->name('districtList');
+    Route::get('/add', [App\Http\Controllers\DistrictController::class, 'add'])->name('addDistricte');
+    Route::post('/add', [App\Http\Controllers\DistrictController::class, 'save'])->name('districtAdd');
+    Route::get('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'edit'])->name('editDistrict');
+    Route::post('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'editSave'])->name('districtEdit');
+});

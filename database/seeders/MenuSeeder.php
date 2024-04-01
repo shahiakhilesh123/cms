@@ -143,6 +143,60 @@ class MenuSeeder extends Seeder
                 "status" => "1",
                 "menu_link" => "/setting",
                 "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'State',
+                "menu_id" => "0",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/state",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'State List',
+                "menu_id" => "15",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/state",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'State Add',
+                "menu_id" => "15",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/state/add",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'District',
+                "menu_id" => "0",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/district",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'District List',
+                "menu_id" => "18",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/district",
+                "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'District Add',
+                "menu_id" => "18",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/district/add",
+                "menu_class" => "fas fa-tachometer-alt"
             ]
         ]);
     }

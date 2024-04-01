@@ -49,6 +49,19 @@
                     @enderror
                   </div>
                   <div class="form-group">
+                    <label for="name">Blog Keyword</label>
+                    <input type="text" name="keyword" class="form-control" id="keyword">
+                    @error('keyword')
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <!-- <span class="fas fa-envelope"> -->
+                          {{ $errors->first('keyword') }}
+                          <!-- </span> -->
+                        </div>
+                      </div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
                     <label for="name">Blog Short Description</label>
                     <input type="text" name="sort_desc" class="form-control" id="sort_desc">
                     @error('sort_desc')
@@ -76,6 +89,46 @@
                           <div class="input-group-text">
                             <!-- <span class="fas fa-envelope"> -->
                             {{ $errors->first('type') }}
+                            <!-- </span> -->
+                          </div>
+                        </div>
+                      @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Select State</label>
+                    <div class="select2-purple">
+                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="state[]">
+                            <option value="0">Select State</option>
+                            @foreach($data['states'] as $state)
+                              <option value="{{ $state->id }}">{{ $state->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                      @error('state')
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <!-- <span class="fas fa-envelope"> -->
+                            {{ $errors->first('state') }}
+                            <!-- </span> -->
+                          </div>
+                        </div>
+                      @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Select District</label>
+                    <div class="select2-purple">
+                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="district[]">
+                            <option value="0">Select District</option>
+                            @foreach($data['district'] as $district)
+                              <option value="{{ $district->id }}">{{ $district->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                      @error('district')
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <!-- <span class="fas fa-envelope"> -->
+                            {{ $errors->first('district') }}
                             <!-- </span> -->
                           </div>
                         </div>

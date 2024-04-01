@@ -18,9 +18,12 @@ return new class extends Migration
             $table->integer('user_id')->nullable();
             $table->text('name');
             $table->text('link')->nullable();
+            $table->text('keyword')->nullable();
             $table->text('sort_description')->nullable();
             $table->string('image_ids')->nullable();
             $table->string('categories_ids')->nullable();
+            $table->string('state_ids')->nullable();
+            $table->string('district_ids')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
         });

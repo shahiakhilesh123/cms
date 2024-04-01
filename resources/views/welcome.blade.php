@@ -9,45 +9,30 @@
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
             <div class="nmf-titlenewssec">
                 <div class="nmf-titlebanner">
-                    <h2>{{ $setting->slider_header }}</h2>
-                    <p>{{ $setting->slider_text }}</p>
+                    <h2>{{ isset($setting->slider_header) ? $setting->slider_header : '' }}</h2>
+                    <p>{{ isset($setting->slider_text) ? $setting->slider_text : '' }}</p>
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
                         <?php 
-                        $blog = App\Models\Blog::whereRaw("find_in_set('".$setting->category."',categories_ids)")->get(); 
-                        
+                        $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->category."',categories_ids)")->whereNull('link')->get(); 
+                    
+                        ?>
+                        @foreach($blogs as $blog)
+                        <!-- {{ print_r($blog) }} -->
+                        <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                        $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
+                        $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
                         ?>
                         <div class="nmf-othrlist">
                             <div class="media">
-                                <img class="" src="{{ asset('file').'/'.$file->file_name }}">
+                                <img class="" src="{{ asset('file').'/'.$ff }}">
                                 <div class="media-body">
-                                    <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
+                                    <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="nmf-othrlist">
-                            <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nmf-othrlist">
-                            <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nmf-othrlist">
-                            <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
-                                <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -71,54 +56,25 @@
                     <div class="col-12 col-md-4">
                         <div class="nmf-postcrd">
                             <div class="row">
+                    <?php
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->secound_row_secound_col_category."',categories_ids)")->whereNull('link')->get(); 
+                    
+                    ?>
+                    @foreach($blogs as $blog)
+                    <!-- {{ print_r($blog) }} -->
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                    $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
+                    $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
+                    ?>
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('file').'/'.$ff }}" />
                                         </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
+                                        <p class=" font-12 font-600"> {{ $matches[0] }} ... </p>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
-                                        </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
-                                        </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
-                                        </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
-                                        </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
-                                        </div>
-                                        <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
-                                    </div>
-                                </div>
+                    @endforeach
                             </div>
                         </div>
                     </div>
@@ -134,60 +90,42 @@
             <div class="col-12 col-md-12">
                 <div class="nmf-featurespost mt-4">
                     <div class="owl-carousel">
+                    <?php
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->get(); 
+                    
+                    ?>
+                    @foreach($blogs as $blog)
+                    <!-- {{ print_r($blog) }} -->
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                    $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); ?>
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
+                                    <div class="featurespost-img"><img src="{{ asset('file').'/'.$file->file_name }}" /></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="nmf-featurespost-item">
-                                <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="nmf-featurespost-item">
-                                <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="nmf-featurespost-item">
-                                <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="nmf-featurespost-item">
-                                <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
-                                </a>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
             <div class="nmf-mainmanoranjansec">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="nmf-horoscope-sec">
+                    <?php $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); ?>
+                        <div class="nmf-horoscope-sec" style="background:url({{ asset('file').'/'.$file->file_name }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
                             
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="nmf-manoranjansec bg-white">
-                            <h2 class="font-600 font-16"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve"><g><g><path style="fill:#D91F26;" d="M9.867,4h35.258c3.242,0,5.876,2.628,5.876,5.876v35.258c-0.011,2.373-1.452,4.508-3.644,5.406c-2.186,0.921-4.711,0.433-6.404-1.234L5.695,14.048c-1.67-1.687-2.158-4.218-1.234-6.404C5.359,5.446,7.494,4.012,9.867,4"></path></svg></span>Manoranjan</h2>
-                            <div class="manoranjansec-item">
+                            <?php $cat = App\Models\Category::where('id', $setting->fourth_row_secound_cat)->first(); ?>
+                            <h2 class="font-600 font-16"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve"><g><g><path style="fill:#D91F26;" d="M9.867,4h35.258c3.242,0,5.876,2.628,5.876,5.876v35.258c-0.011,2.373-1.452,4.508-3.644,5.406c-2.186,0.921-4.711,0.433-6.404-1.234L5.695,14.048c-1.67-1.687-2.158-4.218-1.234-6.404C5.359,5.446,7.494,4.012,9.867,4"></path></svg></span>{{$cat->name}}</h2>
+                            <?php
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$cat->id."',categories_ids)")->first(); 
+                            $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); ?>
+                            <div class="manoranjansec-item" style="background:url({{ asset('file').'/'.$file->file_name }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
 
                             </div>
                         </div>
@@ -199,11 +137,16 @@
                     <div class="col-12 col-md-4">
                         <div class="nmf-aurbhisec">
                             <h2 class="font-16"><a href="#">See more <span><img src="{{ asset('frontend/images/nmf-arrow.svg') }}" /></span></a></h2>
-                            <div class="nmf-featurespost"><img src="{{ asset('frontend/images/sports.png') }}" /></div>
+                            <?php
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fifth_row_first_cat."',categories_ids)")->first(); 
+                            $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); ?>
+                            <div class="nmf-featurespost"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 282px;" /></div>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
-                        <div class="nmf-vidopost"><img src="{{ asset('frontend/images/vnmf-videopost.png') }}" /></div>
+                        <?php
+                    $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fifth_row_second_cat."',categories_ids)")->whereNotNull('link')->orderBy('id', 'DESC')->first(); ?>
+                        <div class="nmf-vidopost"><iframe style="width: 100%;" height="320" src="{{ $blogs->link }}"></iframe></div>
                     </div>
                 </div>
         </div>

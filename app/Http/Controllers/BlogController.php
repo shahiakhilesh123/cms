@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\File;
+use App\Models\State;
+use App\Models\District;
 
 class BlogController extends Controller
 {
@@ -18,7 +20,9 @@ class BlogController extends Controller
     {
         $file = File::get()->all();
         $categories = Category::get()->all();
-        return view('admin/blogAdd')->with('data',['categories' => $categories, 'file' => $file]);
+        $state = State::get()->all();
+        $district = District::get()->all();
+        return view('admin/blogAdd')->with('data',['categories' => $categories, 'file' => $file, 'states'=>$state, 'district'=> $district]);
     }
     public function blogAdd(Request $request)
     {
@@ -27,18 +31,32 @@ class BlogController extends Controller
             'sort_desc' => 'required|string',
             'category' => 'required',
         ]);
-        foreach ($request->images as $image) {
-            $images[] = $image;
+        $images = [];
+        if(isset($request->images)) {
+            foreach ($request->images as $image) {
+                $images[] = $image;
+            }
         }
         foreach ($request->category as $category) {
             $categories[] = $category;
         }
+        foreach ($request->state as $state) {
+            $states[] = $state;
+        }
+        foreach ($request->district as $district) {
+            $districts[] = $district;
+        }
         $ima = implode(',', $images);
         $cat = implode(',', $categories);
+        $state = implode(',', $states);
+        $district = implode(',', $districts);
         Blog::create([
             'name' => $request->name,
             'link' => $request->link,
             'sort_description' => $request->sort_desc,
+            'keyword' => $request->keyword,
+            'state_ids' => $state,
+            'district_ids' => $district,
             'image_ids' => $ima,
             'categories_ids' => $cat,
             'description' => $request->description,
