@@ -36,7 +36,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="name">Site Name</label>
-                    <input type="text" name="site_name" value="{{ $setting->site_name }}" class="form-control" id="site_name">
+                    <input type="text" name="site_name" value="{{ isset($setting->site_name) ? $setting->site_name : ''  }}" class="form-control" id="site_name">
                     @error('site_name')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -49,7 +49,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Meta Tag</label>
-                    <input type="text" name="meta_tag" value="{{ $setting->meta_tag }}" class="form-control" id="meta_tag">
+                    <input type="text" name="meta_tag" value="{{ isset($setting->meta_tag) ? $setting->meta_tag : ''  }}" class="form-control" id="meta_tag">
                     @error('meta_tag')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -62,7 +62,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Meta Description</label>
-                    <input type="text" name="meta_description" value="{{ $setting->meta_description }}" class="form-control" id="meta_description">
+                    <input type="text" name="meta_description" value="{{ isset($setting->meta_description) ? $setting->meta_description : '' }}" class="form-control" id="meta_description">
                     @error('meta_description')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -75,7 +75,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Meta Keyword</label>
-                    <input type="text" name="keyword" value="{{ $setting->keyword }}" class="form-control" id="keyword">
+                    <input type="text" name="keyword" value="{{ isset($setting->keyword) ? $setting->keyword : '' }}" class="form-control" id="keyword">
                     @error('keyword')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -88,7 +88,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">YouTude Link</label>
-                    <input type="text" name="youtube" value="{{ $setting->youtube }}" class="form-control" id="youtube">
+                    <input type="text" name="youtube" value="{{ isset($setting->youtube) ? $setting->youtube : '' }}" class="form-control" id="youtube">
                     @error('youtube')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -101,7 +101,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Facebook Link</label>
-                    <input type="text" name="facebook" value="{{ $setting->facebook }}" class="form-control" id="facebook">
+                    <input type="text" name="facebook" value="{{ isset($setting->facebook) ? $setting->facebook : '' }}" class="form-control" id="facebook">
                     @error('facebook')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -114,7 +114,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Instagram Link</label>
-                    <input type="text" name="instagram" value="{{ $setting->instagram }}" class="form-control" id="instagram">
+                    <input type="text" name="instagram" value="{{ isset($setting->instagram) ? $setting->instagram : '' }}" class="form-control" id="instagram">
                     @error('instagram')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -127,7 +127,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Slider Header</label>
-                    <input type="text" name="slider_header" value="{{ $setting->slider_header }}" class="form-control" id="slider_header">
+                    <input type="text" name="slider_header" value="{{ isset($setting->slider_header) ? $setting->slider_header : '' }}" class="form-control" id="slider_header">
                     @error('slider_header')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -140,7 +140,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Slider Text</label>
-                    <input type="text" name="slider_text" value="{{ $setting->slider_text }}" class="form-control" id="slider_text">
+                    <input type="text" name="slider_text" value="{{ isset($setting->slider_text) ? $setting->slider_text : '' }}" class="form-control" id="slider_text">
                     @error('slider_text')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -158,7 +158,7 @@
                       <option value="0">Select Slider Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
                       @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php if($setting->file == $file->id) { echo "selected"; } ?>>{{ $file->file_name }}</option>
+                          <option value="{{ $file->id }}" <?php if(isset($setting->file) && $setting->file == $file->id) { echo "selected"; } ?>>{{ $file->file_name }}</option>
                       @endforeach
                     </select>
                     </div>
@@ -178,7 +178,7 @@
                         <option value="0">Select Slider Carousal Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->category) { echo "selected"; } ?> >{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if( isset($setting->category) && $setting->category == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('type')
@@ -193,7 +193,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Second Row First Column Title</label>
-                    <input type="text" name="secound_first_title" value="{{ $setting->secound_row_first_title }}" class="form-control" id="secound_first_title">
+                    <input type="text" name="secound_first_title" value="{{ isset($setting->secound_row_first_title) ? $setting->secound_row_first_title : '' }}" class="form-control" id="secound_first_title">
                     @error('secound_first_title')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -211,7 +211,7 @@
                       <option value="0">Second Row First Column Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
                       @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php if($file->id == $setting->secound_row_first_file) { echo "selected"; } ?>>{{ $file->file_name }}</option>
+                          <option value="{{ $file->id }}" <?php if($file->id == isset($setting->secound_row_first_file) ? $setting->secound_row_first_file : '' ) { echo "selected"; } ?>>{{ $file->file_name }}</option>
                       @endforeach
                     </select>
                     </div>
@@ -226,7 +226,7 @@
                     @enderror
                   </div> <div class="form-group">
                     <label for="name">Second Row First Link</label>
-                    <input type="text" name="secound_row_first_link" value="{{ $setting->secound_row_first_link }}"  class="form-control" id="facebook">
+                    <input type="text" name="secound_row_first_link" value="{{ isset($setting->secound_row_first_link) ? $setting->secound_row_first_link : ''}}"  class="form-control" id="facebook">
                     @error('secound_row_first_link')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -243,7 +243,7 @@
                         <option value="0">Select Second Row Second column Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->secound_row_secound_col_category) { echo "selected"; } ?> >{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if(isset($setting->secound_row_secound_col_category) && $setting->secound_row_secound_col_category == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('secound_row_secound_col_category')
@@ -263,7 +263,7 @@
                       <option value="0">Second Row First Column Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
                       @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php if($file->id == $setting->secound_row_third_file) { echo "selected"; } ?>>{{ $file->file_name }}</option>
+                          <option value="{{ $file->id }}" <?php if(isset($setting->secound_row_third_file) && $setting->secound_row_third_file == $file->id) { echo "selected"; } ?>>{{ $file->file_name }}</option>
                       @endforeach
                     </select>
                     </div>
@@ -283,7 +283,7 @@
                         <option value="0">Select Third Row Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->third_row_category){ echo "selected"; } ?>>{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if(isset($setting->third_row_category) && $setting->third_row_category == $category->id){ echo "selected"; } ?>>{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('third_row_category')
@@ -299,12 +299,12 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Fourth Row Third Column Image</label>
                     <div class="custom-file">
-                        {{ $setting->fourth_row_first_image }}
+                        {{ isset($setting->fourth_row_first_image) ? $setting->fourth_row_first_image : ''  }}
                     <select class="form-control select" name="fourth_row_first_image" style="width: 100%;">
                       <option value="0">Fourth Row First Column Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
                       @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php if($file->id == $setting->fourth_row_first_image) { echo "selected"; } ?>>{{ $file->file_name }}</option>
+                          <option value="{{ $file->id }}" <?php if(isset($setting->fourth_row_first_image) && $setting->fourth_row_first_image == $file->id) { echo "selected"; } ?>>{{ $file->file_name }}</option>
                       @endforeach
                     </select>
                     </div>
@@ -320,7 +320,7 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Fourth Row First Column Link</label>
-                    <input type="text" name="fourth_row_first_link" value="{{ $setting->fourth_row_first_link }}" class="form-control" id="facebook">
+                    <input type="text" name="fourth_row_first_link" value="{{ isset($setting->fourth_row_first_link) ? $setting->fourth_row_first_link : '' }}" class="form-control" id="facebook">
                     @error('fourth_row_first_link')
                       <div class="input-group-append">
                         <div class="input-group-text">
@@ -337,7 +337,7 @@
                         <option value="0">Select Fourth Row Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->fourth_row_secound_cat) { echo "selected"; } ?> >{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if(isset($setting->fourth_row_secound_cat) && $setting->fourth_row_secound_cat == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('fourth_row_category')
@@ -356,7 +356,7 @@
                         <option value="0">Select Fifth Row First Col Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->fifth_row_first_cat) { echo "selected"; } ?> >{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if(isset($setting->fifth_row_first_cat) && $setting->fifth_row_first_cat == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('fifth_row_first_col_category')
@@ -375,7 +375,7 @@
                         <option value="0">Select Fifth Row Second Col Category</option>
                         <?php $categories = App\Models\Category::get()->all(); ?>
                         @foreach($categories as $category)
-                          <option value="{{ $category->id }}" <?php if($category->id == $setting->fifth_row_second_cat) { echo "selected"; } ?> >{{ $category->name }}</option>
+                          <option value="{{ $category->id }}" <?php if(isset($setting->fifth_row_second_cat) && $setting->fifth_row_second_cat == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
                         @endforeach
                     </select>
                       @error('fifth_row_second_col_category')
