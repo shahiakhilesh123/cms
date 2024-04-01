@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="{{ asset('admin/plugins/jqvmap/jqvmap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
-  <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Daterange picker -->
@@ -79,6 +78,12 @@
 <!-- JQVMap -->
 <script src="{{ asset('admin/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+<script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+  <script>
+  $(function () {
+    bsCustomFileInput.init();
+  });
+  </script>
 <!-- jQuery Knob Chart -->
 <script src="{{ asset('admin/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
