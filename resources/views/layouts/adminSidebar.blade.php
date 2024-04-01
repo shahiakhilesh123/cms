@@ -1,8 +1,8 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('public/admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="{{asset('/')}}" class="brand-link">
+      <img src="{{ asset('admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -26,7 +26,7 @@
               $subMenus = App\Models\Menu::where('menu_id', $menu['id'])->get(); 
               ?>
               <li class="nav-item menu-open">
-                <a href="<?php if($subMenus->count() == 0){ echo url($menu['menu_link']);  }?> " class="nav-link active">
+                <a href="<?php if($subMenus->count() == 0){ echo asset($menu['menu_link']);  }?> " class="nav-link active">
                   <i class="nav-icon {{ $menu['menu_class']}}"></i>
                   <p>
                     {{$menu['menu_name']}}
@@ -42,7 +42,7 @@
                     <ul class="nav nav-treeview">
                       @foreach($subMenus as $subMenu)
                         <li class="nav-item">
-                          <a href="{{ url($subMenu['menu_link']) }}" class="nav-link active">
+                          <a href="{{ asset($subMenu['menu_link']) }}" class="nav-link active">
                             <i class="far {{ $subMenu['menu_class'] }}"></i>
                             <p>{{ $subMenu['menu_name']}}</p>
                           </a>
