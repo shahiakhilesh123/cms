@@ -299,7 +299,6 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Fourth Row Third Column Image</label>
                     <div class="custom-file">
-                        {{ isset($setting->fourth_row_first_image) ? $setting->fourth_row_first_image : ''  }}
                     <select class="form-control select" name="fourth_row_first_image" style="width: 100%;">
                       <option value="0">Fourth Row First Column Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
