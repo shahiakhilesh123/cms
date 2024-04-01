@@ -61,8 +61,4 @@ class CategoryController extends Controller
         ]);
         return redirect('/categories');
     }
-    public function categoryEdit(Request $request)
-    {
-        echo "this is test";
-    }
 }
