@@ -22,7 +22,8 @@ class FileController extends Controller
             'file' => 'required'
         ]);
         $destinationPath = public_path('file');
-        $fileName = $request->file->getClientOriginalName().time() . '.'. $request->file->extension();
+        $fileName = $request->file->getClientOriginalName();
+        $fileName = pathinfo($fileName, PATHINFO_FILENAME).time() . '.'. $request->file->extension();
         File::create(
                 [
                     "user_id" => '1',
