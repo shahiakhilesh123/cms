@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL'),
+    'url' => 'http://newsnmf.com',
 
     'asset_url' => env('ASSET_URL'),
 
