@@ -63,12 +63,14 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select Category</label>
-                    <select class="form-control" name="category">
-                        <option value="0">Select Category</option>
-                        @foreach($data['categories'] as $category)
-                          <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
+                    <div class="select2-purple">
+                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="category[]">
+                            <option value="0">Select Category</option>
+                            @foreach($data['categories'] as $category)
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                       @error('type')
                         <div class="input-group-append">
                           <div class="input-group-text">

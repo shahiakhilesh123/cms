@@ -17,26 +17,46 @@ class CategoryController extends Controller
     public function addCategory()
     {
         $categories = Category::get()->all();
-        return view('admin/addCategory')->with('categories', $categories);
+        $file = File::get()->all();
+        return view('admin/addCategory')->with('data' , ['categories'=> $categories, 'files' => $file]);
     }
     public function categoryAdd(Request $request)
     {
         $request->validate([
             'name' => 'required|string'
         ]);
-        $file = File::create(
-            [
-                "user_id" => '1',
-                "file_name" => time() . '.'. $request->file->extension(),
-                "file_type" => $request->file->getClientMimeType(),
-                "file_size" => $request->file->getSize(),
-                "full_path" => public_path('file'),
-            ]
-        );
+        $status  = 0;
+        if($request->home_page_status) {
+            $status =1;
+        }
         Category::create([
             'name' => $request->name,
-            'image_name' => $file->id,
-            'home_page_status' => 1,
+            'image_name' => $request->file,
+            'home_page_status' => $status,
+            'category_id' => $request->category,
+        ]);
+        return redirect('/categories');
+    }
+    public function editCategory($id, Request $request)
+    {
+        $singleCate = Category::get()->where('id', $id)->first();
+        $categories = Category::get()->all();
+        $file = File::get()->all();
+        return view('admin/editCategory')->with('data', ['categories' =>$categories, 'singleCate' => $singleCate, 'files' => $file]);
+    }
+    public function categoryEdit($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+        $status  = 0;
+        if($request->home_page_status) {
+            $status =1;
+        }
+        Category::where('id', $id)->update([
+            'name' => $request->name,
+            'image_name' => $request->file,
+            'home_page_status' => $status,
             'category_id' => $request->category,
         ]);
         return redirect('/categories');

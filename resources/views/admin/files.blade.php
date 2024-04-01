@@ -34,7 +34,7 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('addmenu') }}" class="btn btn-primary ">
+                      <a href="{{ url('files') }}/add" class="btn btn-primary ">
                         Add File
                       </a>
                     <!-- </div> -->
@@ -52,8 +52,8 @@
                       <th>File Size</th>
                       <th>File Type</th>
                       <th>File Path</th>
-                      <th></th>
-                    </tr>
+                      <!-- <th></th> -->
+                    </tr> 
                   </thead>
                   <tbody>
                     @foreach($files as $file)
@@ -62,10 +62,10 @@
                       <td>{{ $file->file_name }}</td>
                       <td>{{ $file->file_size }}</td>
                       <td>{{ $file->file_type }}</td>
-                      <td>{{ $file->file_path }}</td>
-                      <td>
+                      <td>{{ $file->full_path }}</td>
+                      <!-- <td>
                         <a href="{{ url('editmenu') }}/{{$file->id}}"><i class="fas fa-edit"></i></a>
-                      </td>
+                      </td> -->
                     </tr>
                     @endforeach
                   </tbody>

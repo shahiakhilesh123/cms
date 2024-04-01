@@ -27,17 +27,22 @@ class BlogController extends Controller
             'sort_desc' => 'required|string',
             'category' => 'required',
         ]);
-        $image = '';
         foreach ($request->images as $image) {
             $images[] = $image;
         }
-        $image = implode(',',$images);
+        foreach ($request->category as $category) {
+            $categories[] = $category;
+        }
+        $ima = implode(',', $images);
+        $cat = implode(',', $categories);
         Blog::create([
             'name' => $request->name,
             'link' => $request->link,
             'sort_description' => $request->sort_desc,
-            'image_ids' => $images,
+            'image_ids' => $ima,
+            'categories_ids' => $cat,
             'description' => $request->description,
         ]);
+        return redirect('blogs');
     }
 }

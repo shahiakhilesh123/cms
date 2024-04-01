@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'homePage'])->name('homePage');
 
 Auth::routes();
 
@@ -35,10 +33,18 @@ Route::prefix('/categories')->group(function () {
     Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('categoryList');
     Route::get('/add', [App\Http\Controllers\CategoryController::class, 'addCategory'])->name('addCategory');
     Route::post('/add', [App\Http\Controllers\CategoryController::class, 'categoryAdd'])->name('categoryAdd');
+    Route::get('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'editCategory'])->name('editCategory');
+    Route::post('/edit/{id}', [App\Http\Controllers\CategoryController::class, 'categoryEdit'])->name('categoryEdit');
 });
-Route::get('files',[App\Http\Controllers\FileController::class, 'index'])->name('fileList');
+Route::prefix('/files')->group(function () {
+    Route::get('/',[App\Http\Controllers\FileController::class, 'index'])->name('fileList');
+    Route::get('/add',[App\Http\Controllers\FileController::class, 'fileAdd'])->name('fileAdd');
+    Route::post('/add',[App\Http\Controllers\FileController::class, 'addFile'])->name('addFile');
+});
 Route::prefix('/blogs')->group(function () {
     Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('categoryList');
     Route::get('/add', [App\Http\Controllers\BlogController::class, 'addBlog'])->name('addBlog');
     Route::post('/add', [App\Http\Controllers\BlogController::class, 'blogAdd'])->name('blogAdd');
 });
+Route::get('/setting', [App\Http\Controllers\SettingController::class,'index'])->name('Setting');
+Route::post('/setting', [App\Http\Controllers\SettingController::class,'saveSetting'])->name('saveSetting');

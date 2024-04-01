@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('link')->nullable();
             $table->text('sort_description')->nullable();
             $table->string('image_ids')->nullable();
+            $table->string('categories_ids')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
         });

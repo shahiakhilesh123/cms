@@ -134,6 +134,15 @@ class MenuSeeder extends Seeder
                 "status" => "1",
                 "menu_link" => "/blogs/add",
                 "menu_class" => "fas fa-tachometer-alt"
+            ],
+            [
+                "menu_name" => 'Home Page Settings',
+                "menu_id" => "0",
+                "type_id" => "3",
+                "category_id" => "1",
+                "status" => "1",
+                "menu_link" => "/setting",
+                "menu_class" => "fas fa-tachometer-alt"
             ]
         ]);
     }

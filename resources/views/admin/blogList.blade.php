@@ -59,6 +59,7 @@
                       <td>{{ $blog->name }}</td>
                       <td>{{ $blog->link }}</td>                      
                       <td>
+                        <a href="{{ url('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a>
                         <a href="{{ url('editblog') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
