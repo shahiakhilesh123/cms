@@ -28,7 +28,7 @@
                         </div>
                         <div class="nmf-othrlist">
                             <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
+                                <img class="" src="{{ asset('public/frontend/images/titleitm-img.jpg') }}">
                                 <div class="media-body">
                                     <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
                                 </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="nmf-othrlist">
                             <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
+                                <img class="" src="{{ asset('public/frontend/images/titleitm-img.jpg') }}">
                                 <div class="media-body">
                                     <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
                                 </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="nmf-othrlist">
                             <div class="media">
-                                <img class="" src="{{ asset('frontend/images/titleitm-img.jpg') }}">
+                                <img class="" src="{{ asset('public/frontend/images/titleitm-img.jpg') }}">
                                 <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -82,7 +82,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -90,7 +90,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -98,7 +98,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -106,7 +106,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -114,7 +114,7 @@
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img">
-                                            <img src="{{ asset('frontend/images/pmf-cardimg.jpg') }}" />
+                                            <img src="{{ asset('public/frontend/images/pmf-cardimg.jpg') }}" />
                                         </div>
                                         <p class=" font-12 font-600"> Many types of physical activity can support weight loss by increasing the amount of </p>
                                     </div>
@@ -123,12 +123,12 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="nmf-ads"><img class="" src="{{ asset('frontend/images/mf-adsec.jpg') }}" /></div>
+                        <div class="nmf-ads"><img class="" src="{{ asset('public/frontend/images/mf-adsec.jpg') }}" /></div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-12">
-                <div class="nmf-fullad-sec mt-4"><a href="#"><img src="{{ asset('frontend/images/hori-ads.jpg') }}" /></a></div>
+                <div class="nmf-fullad-sec mt-4"><a href="#"><img src="{{ asset('public/frontend/images/hori-ads.jpg') }}" /></a></div>
             </div>
             <div class="col-12 col-md-12">
                 <div class="nmf-featurespost mt-4">
@@ -136,7 +136,7 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('public/frontend/images/carasoual-item.jpg') }}" /></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
                                 </a>
                             </div>
@@ -144,7 +144,7 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('public/frontend/images/carasoual-item.jpg') }}" /></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
                                 </a>
                             </div>
@@ -152,7 +152,7 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('public/frontend/images/carasoual-item.jpg') }}" /></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
                                 </a>
                             </div>
@@ -160,7 +160,7 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('public/frontend/images/carasoual-item.jpg') }}" /></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
                                 </a>
                             </div>
@@ -168,7 +168,7 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('frontend/images/carasoual-item.jpg') }}" /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('public/frontend/images/carasoual-item.jpg') }}" /></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600"> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin </p></div>
                                 </a>
                             </div>

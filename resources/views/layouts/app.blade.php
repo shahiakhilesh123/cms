@@ -10,8 +10,8 @@
     <title>{{ $setting->site_name }}</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/frontend/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/frontend/css/custom.css') }}" rel="stylesheet">
     <!-- Include Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -26,7 +26,7 @@
                             <div class="nmf-toptitle">
                                 <div class="nmf-othrlist">
                                     <div class="media">
-                                        <img class="" src="{{ asset('frontend/images/sh.jpg') }}">
+                                        <img class="" src="{{ asset('public/frontend/images/sh.jpg') }}">
                                         <div class="media-body">
                                             <h5 class="mt-0 font-16">Sports Hour</h5>
                                             <p class="font-12 nmf-grey">1.18M subscribers</p>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="nmf-othrlist">
                                     <div class="media">
-                                        <img class="" src="{{ asset('frontend/images/bw.jpg') }}">
+                                        <img class="" src="{{ asset('public/frontend/images/bw.jpg') }}">
                                         <div class="media-body">
                                             <h5 class="mt-0 font-16">Bolly Wrap</h5>
                                             <p class="font-12 nmf-grey">1.18M subscribers</p>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="nmf-othrlist">
                                     <div class="media">
-                                        <img class="" src="{{ asset('frontend/images/dm.jpg') }}">
+                                        <img class="" src="{{ asset('public/frontend/images/dm.jpg') }}">
                                         <div class="media-body">
                                             <h5 class="mt-0 font-16">Dhram Gyan </h5>
                                             <p class="font-12 nmf-grey">1.18M subscribers</p>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="nmf-othrlist">
                                     <div class="media">
-                                        <img class="" src="{{ asset('frontend/images/nw.jpg') }}">
+                                        <img class="" src="{{ asset('public/frontend/images/nw.jpg') }}">
                                         <div class="media-body">
                                             <h5 class="mt-0 font-16">News Express</h5>
                                             <p class="font-12 nmf-grey">1.18M subscribers</p>
@@ -91,11 +91,11 @@
                                     <p>Some text lorem ipsum.</p>
                                 </div>
                             </div>
-                            <a class="" data-bs-toggle="offcanvas" data-bs-target="#demo"><img src="{{ asset('frontend/images/threelines.svg') }}" /></a>
+                            <a class="" data-bs-toggle="offcanvas" data-bs-target="#demo"><img src="{{ asset('public/frontend/images/threelines.svg') }}" /></a>
                         </div>
                         <nav class="navbar navbar-expand-sm" aria-label="Third navbar example">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#"><img class="nmf-logo" src="{{ asset('frontend/images/logo.png') }}" /></a>
+                                <a class="navbar-brand" href="#"><img class="nmf-logo" src="{{ asset('public/frontend/images/logo.png') }}" /></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
@@ -124,7 +124,7 @@
                                             </ul>
                                         </li> -->
                                         <li class="nav-item">
-                                            <a class="nav-link nmf-liveicon" href="#"><img src="{{ asset('frontend/images/live-tele.svg') }}" /></a>
+                                            <a class="nav-link nmf-liveicon" href="#"><img src="{{ asset('public/frontend/images/live-tele.svg') }}" /></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -236,9 +236,7 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
+    </footer>    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Include Owl Carousel JS -->
