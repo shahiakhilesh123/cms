@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ asset('/') }}">Home</a></li>
               <li class="breadcrumb-item active">Save Setting</li>
             </ol>
           </div>
@@ -31,7 +31,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="{{url('setting')}}">
+              <form method="post" action="{{asset('setting')}}">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

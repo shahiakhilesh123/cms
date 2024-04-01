@@ -34,7 +34,7 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('addmenu') }}" class="btn btn-primary ">
+                      <a href="{{ asset('addmenu') }}" class="btn btn-primary ">
                         Add Menu
                       </a>
                     <!-- </div> -->
@@ -67,7 +67,7 @@
                         @endif
                       </td>
                       <td>
-                        <a href="{{ url('editmenu') }}/{{$menu->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ asset('editmenu') }}/{{$menu->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                     @endforeach

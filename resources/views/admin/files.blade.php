@@ -34,7 +34,7 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('files') }}/add" class="btn btn-primary ">
+                      <a href="{{ asset('files') }}/add" class="btn btn-primary ">
                         Add File
                       </a>
                     <!-- </div> -->
@@ -64,7 +64,7 @@
                       <td>{{ $file->file_type }}</td>
                       <td>{{ $file->full_path }}</td>
                       <!-- <td>
-                        <a href="{{ url('editmenu') }}/{{$file->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ asset('editmenu') }}/{{$file->id}}"><i class="fas fa-edit"></i></a>
                       </td> -->
                     </tr>
                     @endforeach

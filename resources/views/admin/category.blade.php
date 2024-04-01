@@ -34,7 +34,7 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('/categories') }}/add" class="btn btn-primary ">
+                      <a href="{{ asset('/categories') }}/add" class="btn btn-primary ">
                         Add Category
                       </a>
                     <!-- </div> -->
@@ -64,7 +64,7 @@
                         @endif
                       </td>
                       <td>
-                        <a href="{{ url('categories') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ asset('categories') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                   @endforeach

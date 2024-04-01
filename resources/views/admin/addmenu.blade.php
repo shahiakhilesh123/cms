@@ -12,8 +12,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('menu') }}">Menus</a></li>
+              <li class="breadcrumb-item"><a href="{{ asset('/') }}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ asset('menu') }}">Menus</a></li>
               <li class="breadcrumb-item active">Add Menu</li>
             </ol>
           </div>
@@ -32,7 +32,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="{{url('menuadd')}}">
+              <form method="post" action="{{asset('menuadd')}}">
               @csrf
                 <div class="card-body">
                   <div class="form-group">

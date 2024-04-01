@@ -34,7 +34,7 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ url('blogs') }}/add" class="btn btn-primary ">
+                      <a href="{{ asset('blogs') }}/add" class="btn btn-primary ">
                         Add Blog
                       </a>
                     <!-- </div> -->
@@ -59,8 +59,8 @@
                       <td>{{ $blog->name }}</td>
                       <td>{{ $blog->link }}</td>                      
                       <td>
-                        <a href="{{ url('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a>
-                        <a href="{{ url('editblog') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a>
+                        <a href="{{ asset('editblog') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                     @endforeach
