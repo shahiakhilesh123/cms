@@ -2,8 +2,8 @@
 
 @section('content')
     <?php 
-    $setting = App\models\Setting::where('id', '1')->first(); 
-    $file = App\models\File::where('id', $setting->file)->first();
+    $setting = App\Models\Setting::where('id', '1')->first(); 
+    $file = App\Models\File::where('id', $setting->file)->first();
     ?>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
@@ -54,7 +54,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="container">
-        <?php $file = App\models\File::where('id', $setting->secound_row_first_file)->first(); ?>
+        <?php $file = App\Models\File::where('id', $setting->secound_row_first_file)->first(); ?>
             <div class="nmfcardlistsec mt-4">
                 <div class="row">
                     <div class="col-12 col-md-4">
