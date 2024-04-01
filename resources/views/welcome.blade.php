@@ -20,7 +20,7 @@
                         ?>
                         <div class="nmf-othrlist">
                             <div class="media">
-                                <img class="" src="{{ asset('file').'/'.isset($file->file_name) ? $file->file_name : '' }}">
+                                <img class="" src="{{ asset('file').'/'. }}">
                                 <div class="media-body">
                                     <h5 class="mt-0 font-16">Muscovado sugar is unrefined cane sugar that contains natural molasses. It has a rich brown color</h5>
                                 </div>
@@ -63,7 +63,7 @@
                                 <h3>
                                     {{ $setting->secound_row_first_title }}
                                 </h3>
-                                <div class="nmf-singlecard-img"><img src="{{ asset('file').'/'.isset($file->file_name) ? $file->file_name : '' }}" /></div>
+                                <div class="nmf-singlecard-img"><img src="{{ asset('file').'/' }}" /></div>
                             </a>
 
                         </div>
