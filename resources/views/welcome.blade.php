@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="nmf-singlecard">
-                            <a href="{{ $setting->secound_row_first_link }}">
+                            <a href="{{ asset($setting->secound_row_first_link) }}">
                                 <h3>
                                     {{ $setting->secound_row_first_title }}
                                 </h3>
@@ -123,7 +123,8 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="nmf-ads"><img class="" src="{{ asset('frontend/images/mf-adsec.jpg') }}" /></div>
+                    <?php $file = App\Models\File::where('id', $setting->secound_row_third_file)->first(); ?>
+                        <div class="nmf-ads"><img class="" src="{{ asset('file').'/'.$file->file_name }}" /></div>
                     </div>
                 </div>
             </div>
