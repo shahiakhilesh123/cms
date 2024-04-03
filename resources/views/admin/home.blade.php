@@ -231,7 +231,7 @@
                       @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Fourth Row Third Column Image</label>
+                    <label for="exampleInputPassword1">Fourth Row First Column Image</label>
                     <div class="custom-file">
                     <select class="form-control select" name="fourth_row_first_image" style="width: 100%;">
                       <option value="0">Fourth Row First Column Image</option>

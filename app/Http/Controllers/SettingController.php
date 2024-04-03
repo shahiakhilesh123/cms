@@ -31,6 +31,7 @@ class SettingController extends Controller
             'secound_row_secound_col_category' => $request->secound_row_secound_col_category,
             'secound_row_third_file' => $request->secound_row_third_file,
             'third_row_category' => $request->third_row_category,
+            'fourth_row_first_image' => $request->fourth_row_first_image,
             'fourth_row_first_link' => $request->fourth_row_first_link,
             'fourth_row_secound_cat' => $request->fourth_row_category,
             'fifth_row_first_cat' => $request->fifth_row_first_col_category,
