@@ -136,9 +136,9 @@
                             <?php $cat = App\Models\Category::where('id', $setting->fourth_row_secound_cat)->first(); ?>
                             <h2 class="font-600 font-16"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve"><g><g><path style="fill:#D91F26;" d="M9.867,4h35.258c3.242,0,5.876,2.628,5.876,5.876v35.258c-0.011,2.373-1.452,4.508-3.644,5.406c-2.186,0.921-4.711,0.433-6.404-1.234L5.695,14.048c-1.67-1.687-2.158-4.218-1.234-6.404C5.359,5.446,7.494,4.012,9.867,4"></path></svg></span>{{$cat->name}}</h2>
                             <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$cat->id."',categories_ids)")->first(); 
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fourth_row_secound_cat."',categories_ids)")->first(); 
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
-                            $ff = isset($file->file_name) ? $file->file_name : '';
+                            $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
                             <div class="manoranjansec-item" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
 
