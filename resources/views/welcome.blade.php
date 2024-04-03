@@ -4,7 +4,8 @@
     <?php 
     $setting = App\Models\Setting::where('id', '1')->first(); 
     $pageDetail = App\Models\Pages::where('id', '1')->first();
-    $pageSequence = App\Models\PageSequence::where('page_id', $pageDetail->id)->orderBy('sequence', 'ASC')->get()->all();
+    $pageSequence = App\Models\PageSequence::where('page_id', $pageDetail->id)->orderBy('sequence', 'ASC')->get()->toArray();
+    //$pageSequence->blog_id;
     // foreach($pageSequence as $seq) {
     //     print_r($seq->blog_id);
     // }
@@ -12,7 +13,7 @@
     // foreach($i = 0; $i < count($pageSequence); $i++) {
     //     print_r($page->blog_id);
     // }
-    $slide = App\Models\Blog::where('id', $pageSequence[0]->blog_id)->first(); 
+    $slide = App\Models\Blog::where('id', $pageSequence[0]['blog_id'])->first(); 
     $blog_file = App\Models\File::whereRaw( "find_in_set('".$slide->image_ids."', id)")->first();
     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
     //echo $ff;
@@ -26,12 +27,9 @@
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
-                        <?php 
-                        $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->category."',categories_ids)")->whereNull('link')->get(); 
-                        ?>
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
-                        $blog = App\Models\Blog::where('id', $pageSequence[$i]->blog_id)->first(); 
+                        $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
                         preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
                         $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                         $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
