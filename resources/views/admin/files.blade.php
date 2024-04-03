@@ -56,6 +56,7 @@
                     </tr> 
                   </thead>
                   <tbody>
+                  @if(count($files) > 0)
                     @foreach($files as $file)
                     <tr>
                       <td>{{ $file->id }}</td>
@@ -68,6 +69,9 @@
                       </td> -->
                     </tr>
                     @endforeach
+                  @else
+                    <tr colspan="5"><td>No Data Found</td></tr>
+                  @endif
                   </tbody>
                 </table>
               </div>

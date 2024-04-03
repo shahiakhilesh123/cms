@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->tinyInteger('home_page_status');
+            $table->tinyInteger('header_sec');
             $table->text('name');
             $table->text('link')->nullable();
             $table->text('keyword')->nullable();

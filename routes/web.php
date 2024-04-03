@@ -41,7 +41,7 @@ Route::prefix('/files')->group(function () {
     Route::get('/add',[App\Http\Controllers\FileController::class, 'fileAdd'])->name('fileAdd');
     Route::post('/add',[App\Http\Controllers\FileController::class, 'addFile'])->name('addFile');
 });
-Route::prefix('/blogs')->group(function () {
+Route::prefix('/posts')->group(function () {
     Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('categoryList');
     Route::get('/add', [App\Http\Controllers\BlogController::class, 'addBlog'])->name('addBlog');
     Route::post('/add', [App\Http\Controllers\BlogController::class, 'blogAdd'])->name('blogAdd');
@@ -61,4 +61,17 @@ Route::prefix('/district')->group(function () {
     Route::post('/add', [App\Http\Controllers\DistrictController::class, 'save'])->name('districtAdd');
     Route::get('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'edit'])->name('editDistrict');
     Route::post('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'editSave'])->name('districtEdit');
+});
+Route::get('/test',[App\Http\Controllers\TestCOntroller::class, 'index'])->name('test');
+Route::prefix('/page')->group(function () {
+    Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('PageList');
+    Route::get('/add', [App\Http\Controllers\PagesController::class, 'add'])->name('addPage');
+    Route::post('/add', [App\Http\Controllers\PagesController::class, 'save'])->name('pageAdd');
+    // Route::get('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'edit'])->name('editDistrict');
+    // Route::post('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'editSave'])->name('districtEdit');
+});
+Route::prefix('/sequence')->group(function () {
+    Route::get('/', [App\Http\Controllers\PageSequenceController::class, 'index'])->name('SequenceList');
+    Route::get('/add', [App\Http\Controllers\PageSequenceController::class, 'add'])->name('addSequence');
+    Route::post('/add', [App\Http\Controllers\PageSequenceController::class, 'save'])->name('sequenceAdd');
 });

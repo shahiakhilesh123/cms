@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected  $fillable  = ['name', 'user_id','link', 'sort_description', 'image_id', 'categories_ids',  'description']; 
+    protected $guarded = ['id'];
+    protected $table = 'blogs';
+
+    public function scopeJoinSequence($query){
+        $query->leftjoin('page_sequences', function($join) {
+            $join->on('page_sequences.blog_id', '=', 'blogs.id');
+        });
+    }
 }

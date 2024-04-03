@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Blog</h1>
+            <h1>Add Post</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ asset('/') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ asset('blogs') }}">Blogs</a></li>
-              <li class="breadcrumb-item active">Add Blog</li>
+              <li class="breadcrumb-item"><a href="{{ asset('Posts') }}">Posts</a></li>
+              <li class="breadcrumb-item active">Add Post</li>
             </ol>
           </div>
         </div>
@@ -28,15 +28,15 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Blogs</h3>
+                <h3 class="card-title">Add Posts</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="{{asset('blogs/add')}}">
+              <form method="post" action="{{asset('posts/add')}}">
               @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name">Blog Name</label>
+                    <label for="name">Post Name</label>
                     <input type="text" name="name" class="form-control" id="name">
                     @error('name')
                       <div class="input-group-append">
@@ -49,7 +49,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Blog Keyword</label>
+                    <label for="name">Post Keyword</label>
                     <input type="text" name="keyword" class="form-control" id="keyword">
                     @error('keyword')
                       <div class="input-group-append">
@@ -62,7 +62,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Blog Short Description</label>
+                    <label for="name">Post Short Description</label>
                     <input type="text" name="sort_desc" class="form-control" id="sort_desc">
                     @error('sort_desc')
                       <div class="input-group-append">
@@ -135,7 +135,7 @@
                       @enderror
                   </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Blog Description</label>
+                    <label for="exampleInputPassword1">Post Description</label>
                     <textarea id="summernote" name="description">
                     </textarea>
                 </div>
@@ -157,6 +157,13 @@
                     <div class="form-check">
                           <input class="form-check-input" name="home_page_status" type="checkbox">
                           <label class="form-check-label">Display on Home page</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Header Section Component(Home)</label>
+                    <div class="form-check">
+                          <input class="form-check-input" name="header_sec" type="checkbox">
+                          <label class="form-check-label">Header Section Component(Home)</label>
                     </div>
                 </div>
                   <div class="form-group">

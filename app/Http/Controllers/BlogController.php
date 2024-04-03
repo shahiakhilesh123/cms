@@ -50,9 +50,19 @@ class BlogController extends Controller
         $cat = implode(',', $categories);
         $state = implode(',', $states);
         $district = implode(',', $districts);
+        $home_page_status = 0;
+        if($request->home_page_status) {
+            $home_page_status = 1;
+        }
+        $header_sec = 0;
+        if($request->header_sec) {
+            $header_sec = 1;
+        }
         Blog::create([
             'name' => $request->name,
             'link' => $request->link,
+            'home_page_status' => $home_page_status,
+            'header_sec' => $header_sec,
             'sort_description' => $request->sort_desc,
             'keyword' => $request->keyword,
             'state_ids' => $state,

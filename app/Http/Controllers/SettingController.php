@@ -13,12 +13,6 @@ class SettingController extends Controller
     }
     public function saveSetting(Request $request)
     {
-        $request->validate([
-            'site_name' => 'required|string',
-            'meta_tag' => 'required|string',
-            'meta_description' => 'required|string',
-            'keyword' => 'required|string',
-        ]);
         Setting::where('id', 1)->update([
             'site_name' => $request->site_name,
             'meta_tag' => $request->meta_tag,

@@ -52,24 +52,27 @@
                       <th></th>
                     </tr>
                   </thead>
-                  @foreach($categories as $category)
-                    <tr>
-                      <td>{{ $category->id }}</td>
-                      <td>{{ $category->name}}</td>
-                      <td>
-                        @if($category->home_page_status == '1')
-                            Active
-                        @else 
-                            Not Active
-                        @endif
-                      </td>
-                      <td>
-                        <a href="{{ asset('categories') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
-                      </td>
-                    </tr>
-                  @endforeach
                   <tbody>
-                    
+                  @if(count($categories) > 0)
+                    @foreach($categories as $category)
+                      <tr>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->name}}</td>
+                        <td>
+                          @if($category->home_page_status == '1')
+                              Active
+                          @else 
+                              Not Active
+                          @endif
+                        </td>
+                        <td>
+                          <a href="{{ asset('categories') }}/edit/{{$category->id}}"><i class="fas fa-edit"></i></a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  @else
+                    <tr><td colspan="4">No Data Found</td></tr>
+                  @endif
                   </tbody>
                 </table>
               </div>

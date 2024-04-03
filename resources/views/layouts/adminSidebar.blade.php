@@ -25,7 +25,8 @@
             foreach($menus as $menu) {
               $subMenus = App\Models\Menu::where('menu_id', $menu['id'])->get(); 
               ?>
-              <li class="nav-item menu-open">
+              <!-- //menu-open -->
+              <li class="nav-item">
                 <a href="<?php if($subMenus->count() == 0){ echo asset($menu['menu_link']);  }?> " class="nav-link active">
                   <i class="nav-icon {{ $menu['menu_class']}}"></i>
                   <p>

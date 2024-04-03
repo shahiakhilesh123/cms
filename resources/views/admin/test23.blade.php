@@ -34,8 +34,8 @@
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
 
                     <!-- <div class="input-group-append"> -->
-                      <a href="{{ asset('addmenu') }}" class="btn btn-primary ">
-                        Add Menu
+                      <a onclick="getVal()" class="btn btn-primary ">
+                        Save
                       </a>
                     <!-- </div> -->
                   </div>
@@ -43,7 +43,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap" id="mytable">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -54,10 +54,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @if(count($menus)>0)
                     @foreach($menus as $menu)
-                    <tr>
-                      <td>{{ $menu->id }}</td>
+                    <tr draggable="true" ondragstart="start()"  ondragover="dragover()">
+                      <td class="td_val">{{ $menu->id }}</td>
                       <td>{{ $menu->menu_name }}</td>
                       <td>{{ $menu->menu_link }}</td>
                       <td>
@@ -72,9 +71,6 @@
                       </td>
                     </tr>
                     @endforeach
-                  @else
-                  <tr><td colspan="5">No Data Found</td></tr>
-                  @endif
                   </tbody>
                 </table>
               </div>
@@ -88,4 +84,31 @@
     </section>
     <!-- /.content -->
   </div>
+  <script>
+    var row;
+
+    function start(){  
+      row = event.target; 
+    }
+    function dragover(){
+      var e = event;
+      e.preventDefault(); 
+      
+      let children= Array.from(e.target.parentNode.parentNode.children);
+      
+      if(children.indexOf(e.target.parentNode)>children.indexOf(row))
+        e.target.parentNode.after(row);
+      else
+        e.target.parentNode.before(row);
+    }
+
+    function getVal(){
+      var arr = [];
+      $("#mytable tr").each(function(){
+          arr.push($(this).find("td:first").text()); //put elements into array
+      });
+      console.log(arr);
+
+    }
+  </script>
   @endsection
