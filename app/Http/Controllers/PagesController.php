@@ -32,4 +32,24 @@ class PagesController extends Controller
         ]);
         return redirect('page'); 
     }
+    public function edit($id)
+    {
+        $pages = Pages::where('id', $id)->first();
+        $category = Category::get()->all();
+        return view('admin/editPage')->with('data', ['categories' => $category, 'pages'=> $pages]);
+    }
+    public function editSave($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'page_limit' => 'required',
+            'category' => 'required',
+        ]);
+        Pages::where('id', $id)->update([
+            'name' => $request->name,
+            'page_limit' => $request->page_limit,
+            'page_top_category' => $request->category,
+        ]);
+        return redirect('page'); 
+    }
 }

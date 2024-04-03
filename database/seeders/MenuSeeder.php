@@ -114,7 +114,7 @@ class MenuSeeder extends Seeder
                 "type_id" => "3",
                 "category_id" => "1",
                 "status" => "1",
-                "menu_link" => "/files",
+                "menu_link" => "/posts",
                 "menu_class" => "fas fa-tachometer-alt"
             ],
             [
@@ -231,7 +231,7 @@ class MenuSeeder extends Seeder
                 "type_id" => "3",
                 "category_id" => "1",
                 "status" => "1",
-                "menu_link" => "/sequence",
+                "menu_link" => "page/sequence",
                 "menu_class" => "fas fa-tachometer-alt"
             ]
         ]);

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('keyword')->nullable();
             $table->text('sort_description')->nullable();
             $table->string('image_ids')->nullable();
+            $table->string('thumb_images')->nullable();
             $table->string('categories_ids')->nullable();
             $table->string('state_ids')->nullable();
             $table->string('district_ids')->nullable();

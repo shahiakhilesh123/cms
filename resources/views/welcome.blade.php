@@ -5,18 +5,9 @@
     $setting = App\Models\Setting::where('id', '1')->first(); 
     $pageDetail = App\Models\Pages::where('id', '1')->first();
     $pageSequence = App\Models\PageSequence::where('page_id', $pageDetail->id)->orderBy('sequence', 'ASC')->get()->toArray();
-    //$pageSequence->blog_id;
-    // foreach($pageSequence as $seq) {
-    //     print_r($seq->blog_id);
-    // }
-    //die();
-    // foreach($i = 0; $i < count($pageSequence); $i++) {
-    //     print_r($page->blog_id);
-    // }
     $slide = App\Models\Blog::where('id', $pageSequence[0]['blog_id'])->first(); 
     $blog_file = App\Models\File::whereRaw( "find_in_set('".$slide->image_ids."', id)")->first();
-    $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
-    //echo $ff;
+    $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
     ?>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
@@ -72,7 +63,6 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <!-- {{ print_r($blog) }} -->
                     <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
@@ -106,7 +96,6 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <!-- {{ print_r($blog) }} -->
                     <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); ?>
                         <div class="item">

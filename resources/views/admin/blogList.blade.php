@@ -60,8 +60,8 @@
                         <td>{{ $blog->name }}</td>
                         <td>{{ $blog->link }}</td>                      
                         <td>
-                          <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a>
-                          <a href="{{ asset('editblog') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
+                          <!-- <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a> -->
+                          <a href="{{ asset('posts/edit') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                         </td>
                       </tr>
                       @endforeach

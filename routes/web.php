@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'homePage'])->name('homePage');
 
 Auth::routes();
-
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/menu', [App\Http\Controllers\MenuController::class, 'menuList'])->name('menulist');
 Route::get('/addmenu', [App\Http\Controllers\MenuController::class, 'addMenu'])->name('addMenu');
@@ -45,6 +45,8 @@ Route::prefix('/posts')->group(function () {
     Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('categoryList');
     Route::get('/add', [App\Http\Controllers\BlogController::class, 'addBlog'])->name('addBlog');
     Route::post('/add', [App\Http\Controllers\BlogController::class, 'blogAdd'])->name('blogAdd');
+    Route::get('/edit/{id}', [App\Http\Controllers\BlogController::class, 'edit'])->name('editBlog');
+    Route::post('/edit/{id}', [App\Http\Controllers\BlogController::class, 'editSave'])->name('blogEdit');
 });
 Route::get('/setting', [App\Http\Controllers\SettingController::class,'index'])->name('Setting');
 Route::post('/setting', [App\Http\Controllers\SettingController::class,'saveSetting'])->name('saveSetting');
@@ -67,10 +69,10 @@ Route::prefix('/page')->group(function () {
     Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('PageList');
     Route::get('/add', [App\Http\Controllers\PagesController::class, 'add'])->name('addPage');
     Route::post('/add', [App\Http\Controllers\PagesController::class, 'save'])->name('pageAdd');
-    // Route::get('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'edit'])->name('editDistrict');
-    // Route::post('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'editSave'])->name('districtEdit');
+    Route::get('/edit/{id}', [App\Http\Controllers\PagesController::class, 'edit'])->name('editPage');
+    Route::post('/edit/{id}', [App\Http\Controllers\PagesController::class, 'editSave'])->name('pageEdit');
 });
-Route::prefix('/sequence')->group(function () {
+Route::prefix('page/sequence')->group(function () {
     Route::get('/', [App\Http\Controllers\PageSequenceController::class, 'index'])->name('SequenceList');
     Route::get('/add', [App\Http\Controllers\PageSequenceController::class, 'add'])->name('addSequence');
     Route::post('/add', [App\Http\Controllers\PageSequenceController::class, 'save'])->name('sequenceAdd');

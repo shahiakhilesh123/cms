@@ -107,7 +107,7 @@
       let myKeyVals = { _token: csrf, pageid : pageId, sequence : JSON.stringify(arr) };
         $.ajax({
             type: 'POST',
-            url: "{{asset('sequence/add') }}",
+            url: "{{asset('page/sequence/add') }}",
             data: myKeyVals,
             dataType: "text",
             success: function(resultData) { alert("Sequence Save") }
