@@ -176,7 +176,7 @@
                         <select class="form-control" name="thumb_images" data-placeholder="Select Thumb Images" style="width: 100%;">
                             <option value="">Select Thumb Images</option> 
                             @foreach($data['file'] as $file)
-                                <option value="{{ $file->id }}" <?php if($file->id == $data['blogs']->thumb_image){ echo "selected"; } ?>>{{ $file->file_name }}</option>
+                                <option value="{{ $file->id }}" <?php if($file->id == $data['blogs']->thumb_images){ echo "selected"; } ?>>{{ $file->file_name }}</option>
                             @endforeach
                         </select>
                     </div>
