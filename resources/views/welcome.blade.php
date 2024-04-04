@@ -151,7 +151,7 @@
                 <div class="nmf-featurespost mt-4">
                     <div class="owl-carousel">
                     <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->get(); 
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->whereNull('link')->get(); 
                     
                     ?>
                     @foreach($blogs as $blog)
