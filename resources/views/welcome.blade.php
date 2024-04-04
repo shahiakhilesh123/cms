@@ -9,9 +9,52 @@
     $blog_file = App\Models\File::whereRaw( "find_in_set('".$slide->image_ids."', id)")->first();
     $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
     ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .media:hover, .link:hover {
             background-color: #48483d;
+        }
+        .blog_container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        }
+
+        .blog_image {
+        display: block;
+        width: 100%;
+        height: auto;
+        }
+
+        .blog_overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .3s ease;
+        }
+
+        .blog_container:hover .blog_overlay {
+        opacity: 1;
+        }
+
+        .blog_icon {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        }
+
+        .fa-video-camera:hover {
+        color: #eee;
         }
     </style>
     <div class="nmf-herosec">
@@ -27,12 +70,23 @@
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
                         preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
-                        $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
-                        $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
+                        if(isset($blog->link)) {
+                            $blog_file = App\Models\File::where("id",$blog->thumb_image )->first();
+                        } else {
+                            $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
+                        }
+                        $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                         ?>
                         <div class="nmf-othrlist">
-                            <div class="media">
-                                <img class="" src="{{ asset('file').'/'.$ff }}" style="height:90px;">
+                            <div class="media <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
+                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="height:90px;">
+                                <?php if(isset($blog->link)) { ?>
+                                <div class="blog_overlay">
+                                <a href="#" class="blog_icon">
+                                    <i class="fa fa-video-camera"></i>
+                                </a>
+                                </div>
+                                <?php } ?>
                                 <div class="media-body">
                                     <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
                                 </div>
