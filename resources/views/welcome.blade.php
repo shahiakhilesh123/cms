@@ -156,11 +156,13 @@
                     ?>
                     @foreach($blogs as $blog)
                     <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
-                    $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); ?>
+                    $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
+                    $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
+                    ?>
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('file').'/'.$file->file_name }}"  /></div>
+                                    <div class="featurespost-img"><img src="{{ asset('file').'/'.$ff }}"  style="width: 243px;height: 208px;"/></div>
                                     <div class="featurespost-tyl link"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
