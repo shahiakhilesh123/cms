@@ -71,7 +71,8 @@
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
                         preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
                         if(isset($blog->link)) {
-                            $blog_file = App\Models\File::where("id",$blog->thumb_images )->first();
+                            echo "this is test";
+                            $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                         }
