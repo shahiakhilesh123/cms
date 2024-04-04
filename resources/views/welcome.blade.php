@@ -11,9 +11,7 @@
     ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .media:hover, .link:hover {
-            background-color: #48483d;
-        }
+        .media:hover, .link:hover {background-color: #48483d;}
         .blog_container {
         position: relative;
         width: 100%;
@@ -38,9 +36,7 @@
         transition: .3s ease;
         }
 
-        .blog_container:hover .blog_overlay {
-        opacity: 1;
-        }
+        .blog_container:hover .blog_overlay {opacity: 1;}
 
         .blog_icon {
         color: white;
@@ -53,9 +49,7 @@
         text-align: center;
         }
 
-        .fa-video-camera:hover {
-        color: #eee;
-        }
+        .fa-video-camera:hover {color: #eee;}
     </style>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
