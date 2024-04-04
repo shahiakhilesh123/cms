@@ -136,7 +136,7 @@
                   </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Post Description</label>
-                    <textarea id="summernote" name="description">
+                    <textarea id="summernote" style="height: 360px;" name="description">
                     </textarea>
                 </div>
                 <div class="form-group">

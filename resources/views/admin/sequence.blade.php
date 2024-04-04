@@ -32,12 +32,18 @@
                 <div class="card-tool s">
                   <div class="input-group input-group-sm float-right" style="width: 150px;">
                     <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
+                    <?php $pages = App\Models\Pages::get()->all(); ?>
+                    <select class="form-control float-right" id="page_id">
+                          @foreach($pages as $page)
+                          <option value="{{ $page->id }}">{{ $page->name }}</option>
+                          @endforeach
+                    </select>
                     @csrf
-                    <!-- <div class="input-group-append"> -->
-                      <a onclick="getVal(<?= $data['pages']->id ?>)" class="btn btn-primary ">
+                    <div class="input-group-append">
+                      <a onclick="getVal()" class="btn btn-primary ">
                         Save
                       </a>
-                    <!-- </div> -->
+                    </div>
                   </div>
                 </div>
               </div>
@@ -97,21 +103,26 @@
         e.target.parentNode.before(row);
     }
 
-    function getVal(pageId){
-      var arr = [];
-      let csrf = $("input[name=_token]").val()
-      $("#mytable tr").each(function(){
-          arr.push($(this).find("td:first").text()); //put elements into array
-      });
-      console.log(JSON.stringify(pageId));
-      let myKeyVals = { _token: csrf, pageid : pageId, sequence : JSON.stringify(arr) };
-        $.ajax({
-            type: 'POST',
-            url: "{{asset('page/sequence/add') }}",
-            data: myKeyVals,
-            dataType: "text",
-            success: function(resultData) { alert("Sequence Save") }
-            });
-        }
+    function getVal(){
+      var pageId = $('#page_id').val();
+      if(pageId == "Select Page") {
+          alert('Please Select Page');
+      } else {
+        var arr = [];
+        let csrf = $("input[name=_token]").val()
+        $("#mytable tr").each(function(){
+            arr.push($(this).find("td:first").text()); //put elements into array
+        });
+        console.log(JSON.stringify(pageId));
+        let myKeyVals = { _token: csrf, pageid : pageId, sequence : JSON.stringify(arr) };
+          $.ajax({
+              type: 'POST',
+              url: "{{asset('page/sequence/add') }}",
+              data: myKeyVals,
+              dataType: "text",
+              success: function(resultData) { alert("Sequence Save") }
+              });
+      }
+    }
   </script>
   @endsection
