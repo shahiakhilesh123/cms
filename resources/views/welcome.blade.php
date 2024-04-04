@@ -9,12 +9,17 @@
     $blog_file = App\Models\File::whereRaw( "find_in_set('".$slide->image_ids."', id)")->first();
     $ff = isset($blog_file->file_name) ? $blog_file->file_name : ''; 
     ?>
+    <style>
+        .media:hover, .link:hover {
+            background-color: #48483d;
+        }
+    </style>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
             <div class="nmf-titlenewssec">
                 <div class="nmf-titlebanner" style="background:url({{ asset('file').'/'.$ff }}) !important;">
-                    <h2>{{ isset($slide->name) ? $slide->name : '' }}</h2>
-                    <p>{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
+                    <h2 class="link">{{ isset($slide->name) ? $slide->name : '' }}</h2>
+                    <p class="link">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
@@ -45,7 +50,7 @@
             <div class="nmfcardlistsec mt-4">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="nmf-singlecard">
+                        <div class="nmf-singlecard link">
                             <a href="{{ asset($setting->secound_row_first_link) }}">
                                 <h3>
                                     {{ $setting->secound_row_first_title }}
@@ -69,10 +74,10 @@
                     ?>
                                 <div class="col-12 col-md-4">
                                     <div class="nest-postcard">
-                                        <div class="nest-postcard-img">
+                                        <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600"> {{ $matches[0] }} ... </p>
+                                        <p class=" font-12 font-600 link"> {{ $matches[0] }} ... </p>
                                     </div>
                                 </div>
                     @endforeach
@@ -81,12 +86,12 @@
                     </div>
                     <div class="col-12 col-md-4">
                     <?php $file = App\Models\File::where('id', $setting->secound_row_third_file)->first(); ?>
-                        <div class="nmf-ads"><img class="" src="{{ asset('file').'/'.$file->file_name }}" style="height: 339px;" /></div>
+                        <div class="nmf-ads link"><img class="" src="{{ asset('file').'/'.$file->file_name }}" style="height: 339px;" /></div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-12">
-                <div class="nmf-fullad-sec mt-4"><a href="#"><img src="{{ asset('frontend/images/hori-ads.jpg') }}" /></a></div>
+                <div class="nmf-fullad-sec mt-4 link"><a href="#"><img src="{{ asset('frontend/images/hori-ads.jpg') }}" /></a></div>
             </div>
             <div class="col-12 col-md-12">
                 <div class="nmf-featurespost mt-4">
@@ -102,7 +107,7 @@
                             <div class="nmf-featurespost-item">
                                 <a href="#">
                                     <div class="featurespost-img"><img src="{{ asset('file').'/'.$file->file_name }}"  /></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
+                                    <div class="featurespost-tyl link"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
