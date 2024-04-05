@@ -17,14 +17,10 @@
         }
         .blog_container {
         position: relative;
-        width: 100%;
-        max-width: 400px;
         }
 
         .blog_image {
         display: block;
-        width: 100%;
-        height: auto;
         }
 
         .blog_overlay {
@@ -70,7 +66,7 @@
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -90,7 +86,7 @@
                                 </div>
                                 <?php } ?>    
                                 </span>
-                                <div class="media-body">
+                                <div class="media-body" style="width: 100%;">
                                     <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
                                 </div>
                             </div>
