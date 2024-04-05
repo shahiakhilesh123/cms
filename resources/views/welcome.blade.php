@@ -11,8 +11,9 @@
     ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .media:hover, .link:hover {
-            background-color: #48483d;
+        .img_media:hover, .link:hover {
+            /* background-color: #48483d; */
+            filter: brightness(0.6);
         }
         .blog_container {
         position: relative;
@@ -78,15 +79,17 @@
                         $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                         ?>
                         <div class="nmf-othrlist">
-                            <div class="media <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
-                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="height:90px;">
+                            <div class="media">
+                                <span class="img_media link <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
+                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="height:90px; width:100%;">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
                                 <a href="#" class="blog_icon">
                                     <i class="fa fa-video-camera"></i>
                                 </a>
                                 </div>
-                                <?php } ?>
+                                <?php } ?>    
+                                </span>
                                 <div class="media-body">
                                     <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
                                 </div>
@@ -104,12 +107,12 @@
             <div class="nmfcardlistsec mt-4">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="nmf-singlecard link">
+                        <div class="nmf-singlecard">
                             <a href="{{ asset($setting->secound_row_first_link) }}">
                                 <h3>
                                     {{ $setting->secound_row_first_title }}
                                 </h3>
-                                <div class="nmf-singlecard-img"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
+                                <div class="nmf-singlecard-img link"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
                             </a>
 
                         </div>
@@ -162,8 +165,8 @@
                         <div class="item">
                             <div class="nmf-featurespost-item">
                                 <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('file').'/'.$ff }}"  style="width: 243px;height: 208px;"/></div>
-                                    <div class="featurespost-tyl link"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
+                                    <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 243px;height: 208px;"/></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
@@ -177,7 +180,7 @@
                     <?php $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
                     $ff = isset($file->file_name) ? $file->file_name : '';
                     ?>
-                        <div class="nmf-horoscope-sec" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
+                        <div class="nmf-horoscope-sec link" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
                             
                         </div>
                     </div>
@@ -190,8 +193,8 @@
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
-                            <div class="manoranjansec-item" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-
+                            <div class="manoranjansec-item nmf-titlebanner link" style="color: #ffffff; background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
+                                    <h2 style="color: #ffffff; margin-top: 15%;">{{ isset($blog->name) ? $blog->name : '' }}</h2>
                             </div>
                         </div>
                     </div>
@@ -207,7 +210,7 @@
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
-                            <div class="nmf-featurespost"><img src="{{ asset('file').'/'.$ff }}" style="height: 282px;" /></div>
+                            <div class="nmf-featurespost link"><img src="{{ asset('file').'/'.$ff }}" style="height: 282px;" /></div>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
