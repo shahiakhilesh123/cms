@@ -77,3 +77,6 @@ Route::prefix('page/sequence')->group(function () {
     Route::get('/add', [App\Http\Controllers\PageSequenceController::class, 'add'])->name('addSequence');
     Route::post('/add', [App\Http\Controllers\PageSequenceController::class, 'save'])->name('sequenceAdd');
 });
+Route::get('detail', function () {
+    return view('detail');
+});
