@@ -49,7 +49,7 @@
         -ms-transform: translate(-50%, -50%);
         text-align: center;
         }
-
+        .a_link:hover {text-decoration: underline; }
         .fa-video-camera:hover {
         color: #eee;
         }
@@ -58,8 +58,8 @@
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
             <div class="nmf-titlenewssec">
                 <div class="nmf-titlebanner" style="background:url({{ asset('file').'/'.$ff }}) !important;">
-                    <h2 class="link">{{ isset($slide->name) ? $slide->name : '' }}</h2>
-                    <p class="link">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
+                    <h2 class="a_link">{{ isset($slide->name) ? $slide->name : '' }}</h2>
+                    <p class="a_link">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
@@ -86,8 +86,8 @@
                                 </div>
                                 <?php } ?>    
                                 </span>
-                                <div class="media-body" style="width: 100%;">
-                                    <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
+                                <div class="media-body" style="width: 100%; margin-left: 5px;">
+                                    <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="col-12 col-md-4">
                         <div class="nmf-singlecard">
                             <a href="{{ asset($setting->secound_row_first_link) }}">
-                                <h3>
+                                <h3 class="a_link">
                                     {{ $setting->secound_row_first_title }}
                                 </h3>
                                 <div class="nmf-singlecard-img link"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
@@ -130,7 +130,7 @@
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600 link"> {{ $matches[0] }} ... </p>
+                                        <p class=" font-12 font-600 a_link"> {{ $matches[0] }} ... </p>
                                     </div>
                                 </div>
                     @endforeach
@@ -162,7 +162,7 @@
                             <div class="nmf-featurespost-item">
                                 <a href="#">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
-                            <div class="manoranjansec-item nmf-titlebanner link" style="color: #ffffff; background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
+                            <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
                                     <h2 style="color: #ffffff; margin-top: 15%;">{{ isset($blog->name) ? $blog->name : '' }}</h2>
                             </div>
                         </div>
