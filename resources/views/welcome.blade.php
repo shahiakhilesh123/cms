@@ -15,7 +15,6 @@
             /* background-color: #48483d; */
             filter: brightness(0.6);
         }
-        .media:hover, .link:hover {background-color: #48483d;}
         .blog_container {
         position: relative;
         }
