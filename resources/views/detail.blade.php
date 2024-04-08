@@ -16,7 +16,7 @@
                                     </p>
                                 </div>
                                 <figure class="nestednmf-figure">
-                                    <img src="images/dtl-postimg.png" alt="nestednmf-post">
+                                    <img src="{{ asset('frontend/images/dtl-postimg.png') }}" alt="nestednmf-post">
                                     <figcaption>पप्पू यादव और लालू यादव (फाइल फोटो)</figcaption>
                                 </figure>
                                 <p>
@@ -32,7 +32,7 @@
                                                 <div class="nmf-featurespost-item">
                                                     <a href="#">
                                                         <div class="media">
-                                                            <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                            <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                             <div class="media-body">
                                                                 <h5 class="mt-0 font-600 font-14">
                                                                     पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया 
@@ -47,7 +47,7 @@
                                                 <div class="nmf-featurespost-item">
                                                     <a href="#">
                                                         <div class="media">
-                                                            <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                            <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                             <div class="media-body">
                                                                 <h5 class="mt-0 font-600 font-14">
                                                                     पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -62,7 +62,7 @@
                                                 <div class="nmf-featurespost-item">
                                                     <a href="#">
                                                         <div class="media">
-                                                            <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                            <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                             <div class="media-body">
                                                                 <h5 class="mt-0 font-600 font-14">
                                                                     पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -77,7 +77,7 @@
                                                 <div class="nmf-featurespost-item">
                                                     <a href="#">
                                                         <div class="media">
-                                                            <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                            <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                             <div class="media-body">
                                                                 <h5 class="mt-0 font-600 font-14">
                                                                     पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -92,7 +92,7 @@
                                                 <div class="nmf-featurespost-item">
                                                     <a href="#">
                                                         <div class="media">
-                                                            <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                            <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                             <div class="media-body">
                                                                 <h5 class="mt-0 font-600 font-14">
                                                                     पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -120,7 +120,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/nmfthumbnail-img.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/nmfthumbnail-img.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -133,7 +133,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -146,7 +146,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/nmfthumbnail-img.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/nmfthumbnail-img.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -159,7 +159,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -172,7 +172,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/nmfthumbnail-img.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/nmfthumbnail-img.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -185,7 +185,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/sports.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/sports.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -198,7 +198,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/dtl-postimg.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/dtl-postimg.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -211,7 +211,7 @@
                                         <div class="nmf-lsctctergy-item">
                                             <a href="#">
                                                 <div class="media">
-                                                    <img class="d-flex mr-3" src="images/nmfthumbnail-img.png" alt="post-image">
+                                                    <img class="d-flex mr-3" src="{{ asset('frontend/images/nmfthumbnail-img.png') }}" alt="post-image">
                                                     <div class="media-body">
                                                         <h5 class="mt-0 font-600 font-14">
                                                             पप्पू यादव ने 5 साल में जो सियासी जमीन बनाई थी, लालू ने एक दांव से उसे मिट्टी कर दिया
@@ -223,7 +223,7 @@
                                         </div>
                                     </div>
                                     <div class="nmf-sidebarads">
-                                        <img class="img-responsive" src="images/nmf-sidebarads.png" alt="post-image">
+                                        <img class="img-responsive" src="{{ asset('frontend/images/nmf-sidebarads.png') }}" alt="post-image">
                                     </div>
                                 </div>
 
