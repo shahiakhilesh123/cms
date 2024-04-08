@@ -158,7 +158,7 @@
                     ?>
                         <div class="item">
                             <div class="nmf-featurespost-item">
-                                <a href="#">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
                                 </a>
@@ -175,7 +175,7 @@
                     $ff = isset($file->file_name) ? $file->file_name : '';
                     ?>
                         <div class="nmf-horoscope-sec link" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-                            
+                            <h2 style="color: #ffffff; ">{{ isset($blog->name) ? $blog->name : '' }}</h2>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">

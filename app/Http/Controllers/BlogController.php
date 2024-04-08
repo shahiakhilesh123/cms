@@ -72,7 +72,7 @@ class BlogController extends Controller
             'categories_ids' => $cat,
             'description' => $request->description,
         ]);
-        return redirect('blogs');
+        return redirect('posts');
     }
     public function edit($id)
     {
@@ -131,6 +131,7 @@ class BlogController extends Controller
             'categories_ids' => $cat,
             'description' => $request->description,
         ]);
-        return redirect('blogs');
+        return redirect('posts');
     }
+   
 }
