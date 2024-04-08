@@ -234,7 +234,7 @@
                 </div>
             </div>
         </div>
-    </footer>    <script src="js/bootstrap.bundle.min.js"></script>
+    </footer>    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     
     <!-- Include Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
