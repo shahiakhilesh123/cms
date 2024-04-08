@@ -14,6 +14,7 @@
         .img_media:hover, .link:hover {
             /* background-color: #48483d; */
             filter: brightness(0.6);
+            cursor: pointer;
         }
         .blog_container {
         position: relative;
@@ -47,7 +48,10 @@
         -ms-transform: translate(-50%, -50%);
         text-align: center;
         }
-        .a_link:hover {text-decoration: underline; }
+        .a_link:hover {
+            text-decoration: underline; 
+            cursor: pointer;
+        }
         .fa-video-camera:hover {
         color: #eee;
         }
