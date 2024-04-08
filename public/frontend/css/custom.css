@@ -129,3 +129,24 @@ img.nmf-logo {position: absolute;top: -28px;left: 0;}
 }
 .nmf-qklinks-inner .nmf-qklinks-item a{ text-decoration:none; color:#ffffff; font-size:16px; font-weight:600; transition-duration:0.5s;}
 .nmf-qklinks-inner .nmf-qklinks-item a:hover{color:#e20206;}
+/* dtl page css*/
+.nmftheme-white{background:#ffffff !important;}
+figure.nestednmf-figure img {width: 100%;}
+.nestednmf-perpost {padding: 20px 0 0;}
+.nmf-relatednews h2 {margin: 0;padding: 10px 15px;background: #134393;color: #ffffff;}
+.nmf-relatednews .media {display: flex; flex: 1; gap:10px; align-items:center; }
+.nmf-relatednews img {flex-shrink: 0;width: 100px !important;}
+.nmf-relatednews a{color:#020202;}
+.nmf-featurespost {position: relative;}
+.nmf-featurespost-item {background: #fafafa;padding: 10px 40px;}
+.nmf-relatednews .owl-prev {position:absolute; top:3%; left:10px;}
+.nmf-relatednews .owl-next {position: absolute;top: 3%;right: 10px;}
+.nmf-relatednews .owl-prev span,.nmf-relatednews .owl-next span {font-size: 50px; font-weight: bold;color: #134393;font-family: sans-serif;}
+.nestednmf-lsctctergy svg {width: 12px;}
+.nestednmf-ctrgry {padding: 20px;}
+.nmf-lsctctergy-item img {width: 100px;}
+.nmf-lsctctergy-item .media {display: flex;gap: 10px;align-items: center;}
+.nmf-lsctctergy-item a {color: #020202;text-decoration: none; transition-duration:0.5s}
+.nmf-lsctctergy-item a:hover{color:#134393;}
+.nestednmf-lsctctergy h2 {display: flex; gap: 15px; font-size: 16px; padding: 10px 0;}
+.nmf-lsctctergy-item {padding: 0;border-bottom: 1px solid #e7e7e7;margin: 0 0 20px;padding: 0 0 15px;}
