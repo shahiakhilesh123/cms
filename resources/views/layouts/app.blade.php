@@ -2,7 +2,7 @@
 <html lang="en" class="h-100" data-bs-theme="auto">
 <head>
     <?php $setting = App\Models\Setting::where('id', 1)->first(); ?>
-    <script src="../assets/js/color-modes.js"></script>
+    <!-- <script src="../assets/js/color-modes.js"></script> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ isset($setting->meta_description) ? $setting->meta_description : '' }}">
