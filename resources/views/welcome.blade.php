@@ -68,8 +68,7 @@
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        //preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
-                        $matches = substr($blog->sort_description, 0, strpos(wordwrap($blog->sort_description, 90), "\n"));
+                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -90,7 +89,7 @@
                                 <?php } ?>    
                                 </span>
                                 <div class="media-body" style="width: 100%; margin-left: 5px;">
-                                    <h5 class="mt-0 font-16 a_link">{{ $matches}} ...</h5>
+                                    <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +123,7 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <?php //preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
-                    $matches = substr($blog->sort_description, 0, strpos(wordwrap($blog->sort_description, 90), "\n"));
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
@@ -134,7 +132,7 @@
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600 a_link"> {{ $matches }} ... </p>
+                                        <p class=" font-12 font-600 a_link"> {{ $matches[0] }} ... </p>
                                     </div>
                                 </div>
                     @endforeach
@@ -158,8 +156,7 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <?php //preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
-                    $matches = substr($blog->sort_description, 0, strpos(wordwrap($blog->sort_description, 90), "\n"));
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                     ?>
@@ -167,7 +164,7 @@
                             <div class="nmf-featurespost-item" style="padding: 0px 0px;">
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches }} ... </p></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
