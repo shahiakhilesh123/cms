@@ -36,7 +36,7 @@
               @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name">Edit Name</label>
+                    <label for="name">Edit Title</label>
                     <input type="text" name="name" value="{{ $data['blogs']->name }}" class="form-control" id="name">
                     @error('name')
                       <div class="input-group-append">
@@ -49,7 +49,20 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Post Keyword</label>
+                    <label for="name">Title URL</label>
+                    <input type="text" name="eng_name" value="{{ $data['blogs']->eng_name }}" class="form-control" id="eng_name">
+                    @error('eng_name')
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <!-- <span class="fas fa-envelope"> -->
+                          {{ $errors->first('eng_name') }}
+                          <!-- </span> -->
+                        </div>
+                      </div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Keyword</label>
                     <input type="text" name="keyword" value="{{ $data['blogs']->keyword }}" class="form-control" id="keyword">
                     @error('keyword')
                       <div class="input-group-append">
@@ -62,7 +75,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Post Short Description</label>
+                    <label for="name">Brief</label>
                     <input type="text" name="sort_desc" value="{{ $data['blogs']->sort_description }}" class="form-control" id="sort_desc">
                     @error('sort_desc')
                       <div class="input-group-append">
@@ -78,7 +91,7 @@
                     <label for="exampleInputPassword1">Select Category</label>
                     <?php $cat = explode(',', $data['blogs']->categories_ids); ?>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="category[]">
+                        <select class="form-control" name="category">
                             <option value="0">Select Category</option>
                             @foreach($data['categories'] as $category)
                               <option value="{{ $category->id }}" <?php if(in_array($category->id, $cat)){ echo "selected"; } ?>>{{ $category->name }}</option>
@@ -99,7 +112,7 @@
                     <label for="exampleInputPassword1">Select State</label>
                     <?php $sta = explode(',', $data['blogs']->state_ids); ?>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="state[]">
+                        <select class="form-control" name="state">
                             <option value="0">Select State</option>
                             @foreach($data['states'] as $state)
                               <option value="{{ $state->id }}" <?php if(in_array($state->id, $sta)){ echo "selected"; } ?>>{{ $state->name }}</option>
@@ -120,7 +133,7 @@
                     <label for="exampleInputPassword1">Select District</label>
                     <?php $dis = explode(',', $data['blogs']->district_ids); ?>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="district[]">
+                        <select class="form-control"  name="district">
                             <option value="0">Select District</option>
                             @foreach($data['district'] as $district)
                               <option value="{{ $district->id }}" <?php if(in_array($district->id, $dis)){ echo "selected"; } ?>>{{ $district->name }}</option>
@@ -173,7 +186,7 @@
                 <div class="form-group">
                     <label>Select Thumb Images</label>
                     <div class="select2-purple">
-                        <select class="form-control" name="thumb_images" data-placeholder="Select Thumb Images" style="width: 100%;">
+                        <select class="form-control" name="thumb_images" style="width: 100%;">
                             <option value="">Select Thumb Images</option> 
                             @foreach($data['file'] as $file)
                                 <option value="{{ $file->id }}" <?php if($file->id == $data['blogs']->thumb_images){ echo "selected"; } ?>>{{ $file->file_name }}</option>
@@ -185,9 +198,9 @@
                     <label>Select Images</label>
                     <div class="select2-purple">
                     <?php $img = explode(',', $data['blogs']->image_ids); ?>
-                        <select class="select2" name="images[]" multiple="multiple" data-placeholder="Select Images" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                        <select class="form-control" name="images" style="width: 100%;">
                             @foreach($data['file'] as $file)
-                                <option value="{{ $file->id }}" <?php if(in_array($file->id, $img)){ echo "selected"; } ?>>{{ $file->file_name }}</option>
+                                <option value="{{ $file->id }}" <?php if(in_array($file->id, $img)){ echo "selected"; } ?>>{{ $file->file_name }}  <img src="{{ asset('file').'/'.$file->file_name }}" /></option>
                             @endforeach
                         </select>
                     </div>

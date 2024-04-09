@@ -36,7 +36,7 @@
               @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name">Post Name</label>
+                    <label for="name">Post Title</label>
                     <input type="text" name="name" class="form-control" id="name">
                     @error('name')
                       <div class="input-group-append">
@@ -49,7 +49,20 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Post Keyword</label>
+                    <label for="name">Title URL</label>
+                    <input type="text" name="eng_name" class="form-control" id="eng_name">
+                    @error('eng_name')
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <!-- <span class="fas fa-envelope"> -->
+                          {{ $errors->first('eng_name') }}
+                          <!-- </span> -->
+                        </div>
+                      </div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Keyword</label>
                     <input type="text" name="keyword" class="form-control" id="keyword">
                     @error('keyword')
                       <div class="input-group-append">
@@ -62,7 +75,7 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Post Short Description</label>
+                    <label for="name">Brief</label>
                     <input type="text" name="sort_desc" class="form-control" id="sort_desc">
                     @error('sort_desc')
                       <div class="input-group-append">
@@ -77,7 +90,7 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select Category</label>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="category[]">
+                        <select class="form-control" name="category">
                             <option value="0">Select Category</option>
                             @foreach($data['categories'] as $category)
                               <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -97,7 +110,7 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select State</label>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="state[]">
+                        <select class="form-control" name="state">
                             <option value="0">Select State</option>
                             @foreach($data['states'] as $state)
                               <option value="{{ $state->id }}">{{ $state->name }}</option>
@@ -117,7 +130,7 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select District</label>
                     <div class="select2-purple">
-                        <select class="form-control select2" multiple="multiple" data-dropdown-css-class="select2-purple" name="district[]">
+                        <select class="form-control"  name="district">
                             <option value="0">Select District</option>
                             @foreach($data['district'] as $district)
                               <option value="{{ $district->id }}">{{ $district->name }}</option>
@@ -180,7 +193,7 @@
                   <div class="form-group">
                     <label>Select Images</label>
                     <div class="select2-purple">
-                        <select class="select2" name="images[]" multiple="multiple" data-placeholder="Select Images" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                        <select class="form-control" name="images" data-placeholder="Select Images" data-dropdown-css-class="select2-purple" style="width: 100%;">
                             @foreach($data['file'] as $file)
                                 <option value="{{ $file->id }}">{{ $file->file_name }}</option>
                             @endforeach

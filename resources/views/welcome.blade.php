@@ -55,6 +55,14 @@
         .fa-video-camera:hover {
         color: #eee;
         }
+        a {
+            color: rgb(246 248 250);
+            text-decoration: none;
+        }
+        .story{
+            color: black;
+            text-decoration: none;
+        }
     </style>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
@@ -82,15 +90,17 @@
                                 <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="height:90px; width:100%;">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
-                                <a href="#" class="blog_icon">
+                                <a href="{{ $blog->link }}" class="blog_icon">
                                     <i class="fa fa-video-camera"></i>
                                 </a>
                                 </div>
                                 <?php } ?>    
                                 </span>
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
                                 <div class="media-body" style="width: 100%; margin-left: 5px;">
                                     <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
                                 </div>
+                                </a>
                             </div>
                         </div>
                         @endfor
@@ -128,12 +138,14 @@
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
                                 <div class="col-12 col-md-4">
+                                <a class="story" href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
                                         <p class=" font-12 font-600 a_link"> {{ $matches[0] }} ... </p>
                                     </div>
+                                </a>
                                 </div>
                     @endforeach
                             </div>

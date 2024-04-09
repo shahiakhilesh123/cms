@@ -97,7 +97,7 @@
                         </div>
                         <nav class="navbar navbar-expand-sm" aria-label="Third navbar example">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#"><img class="nmf-logo" src="{{ asset('frontend/images/logo.png') }}" /></a>
+                                <a class="navbar-brand" href="{{ asset('/') }}"><img class="nmf-logo" src="{{ asset('frontend/images/logo.png') }}" /></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>

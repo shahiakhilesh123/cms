@@ -19,6 +19,7 @@ return new class extends Migration
             $table->tinyInteger('home_page_status');
             $table->tinyInteger('header_sec');
             $table->text('name');
+            $table->text('eng_name');
             $table->text('link')->nullable();
             $table->text('keyword')->nullable();
             $table->text('sort_description')->nullable();
