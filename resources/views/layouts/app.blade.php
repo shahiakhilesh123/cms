@@ -113,7 +113,7 @@
                                         @foreach($menus as $menu)
                                         <?php
                                         $subMenus = App\Models\Menu::get()->where('menu_id', $menu->id)->where('status', '1')->where('type_id', '1')->where('category_id', '2')->all(); ?>
-                                        <li class="nav-item <?php if(count($subMenus) > 0){ echo "dropdown"; } ?>">
+                                        <li class="nav-item <?php if(count($subMenus) > 0){ echo "dropdown"; } ?>" style="margin-left:5px;">
                                             <a class="{{ $menu->menu_class }} active" aria-current="page" href="<?php if(count($subMenus) > 0){ echo url().'/'.$menu->menu_link; } else { echo $menu->menu_link; } ?>">{{ $menu->menu_name }}</a>
                                         </li>
                                         @endforeach
