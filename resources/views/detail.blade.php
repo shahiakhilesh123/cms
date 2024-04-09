@@ -16,8 +16,12 @@
                                     </p>
                                 </div>
                                 <figure class="nestednmf-figure">
+                                    @if( $data['blog']->link != '')
+                                    <iframe style="width: 100%;" height="320" src="{{ $data['blog']->link}}"></iframe>
+                                    @else
                                     <?php $ff = isset($data['blog']->images->file_name) ? $data['blog']->images->file_name : ''; ?>
                                     <img src="{{ asset('file').'/'.$ff }}" alt="nestednmf-post">
+                                    @endif
                                     <!-- <figcaption>पप्पू यादव और लालू यादव (फाइल फोटो)</figcaption> -->
                                 </figure>
                                 <p>
