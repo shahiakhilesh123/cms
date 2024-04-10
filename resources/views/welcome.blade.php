@@ -76,7 +76,7 @@
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
+                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -87,7 +87,7 @@
                         <div class="nmf-othrlist">
                             <div class="media">
                                 <span class="img_media link <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
-                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style=" width:100%;">
+                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
                                 <a href="{{ $blog->link }}" class="blog_icon">
@@ -133,7 +133,7 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
@@ -165,10 +165,9 @@
                     <div class="owl-carousel">
                     <?php
                             $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->whereNull('link')->get(); 
-                    
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                     ?>
