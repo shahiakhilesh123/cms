@@ -87,7 +87,7 @@
                         <div class="nmf-othrlist">
                             <div class="media">
                                 <span class="img_media link <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
-                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}">
+                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="width: 140px;">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
                                 <a href="{{ $blog->link }}" class="blog_icon">
