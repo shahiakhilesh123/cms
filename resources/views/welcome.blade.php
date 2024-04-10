@@ -191,7 +191,7 @@
                     $ff = isset($file->file_name) ? $file->file_name : '';
                     ?>
                         <div class="nmf-horoscope-sec link" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-                            <h2 style="color: #ffffff; ">{{ isset($blog->name) ? $blog->name : '' }}</h2>
+                            <!-- <h2 style="color: #ffffff; ">{{ isset($blog->name) ? $blog->name : '' }}</h2> -->
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
