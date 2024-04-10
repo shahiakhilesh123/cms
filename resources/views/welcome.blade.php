@@ -174,7 +174,7 @@
                     ?>
                         <div class="item">
                             <div class="nmf-featurespost-item" style="padding: 0px 0px;">
-                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
                                     <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
                                 </a>
