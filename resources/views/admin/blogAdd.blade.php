@@ -195,7 +195,7 @@
                     <div class="select2-purple">
                         <select class="form-control" name="images" data-placeholder="Select Images" data-dropdown-css-class="select2-purple" style="width: 100%;">
                             @foreach($data['file'] as $file)
-                                <option value="{{ $file->id }}">{{ $file->file_name }}</option>
+                                <option value="{{ $file->id }}" style="background-image:url({{ asset('file').'/'.$file->file_name }});">{{$file->file_name}}</option>
                             @endforeach
                         </select>
                     </div>

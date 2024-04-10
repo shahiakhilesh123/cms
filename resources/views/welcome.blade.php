@@ -96,7 +96,7 @@
                                 </div>
                                 <?php } ?>    
                                 </span>
-                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                 <div class="media-body" style="width: 100%; margin-left: 5px;">
                                     <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
                                 </div>
@@ -138,7 +138,7 @@
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
                                 <div class="col-12 col-md-4">
-                                <a class="story" href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->name); ?>">
+                                <a class="story" href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
