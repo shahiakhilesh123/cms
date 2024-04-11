@@ -125,29 +125,37 @@
                       </div>
                     @enderror
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="name">Second Row First Column Title</label>
                     <input type="text" name="secound_first_title" value="{{ isset($setting->secound_row_first_title) ? $setting->secound_row_first_title : '' }}" class="form-control" id="secound_first_title">
                     @error('secound_first_title')
                       <div class="input-group-append">
                         <div class="input-group-text">
-                          <!-- <span class="fas fa-envelope"> -->
-                          {{ $errors->first('secound_first_title') }}
-                          <!-- </span> -->
-                        </div>
+                          <span class="fas fa-envelope"> -->
+                          <!-- {{ $errors->first('secound_first_title') }}
+                          </span> -->
+                        <!-- </div>
                       </div>
                     @enderror
-                  </div>
+                  </div> -->
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Second Row First Column Image</label>
-                    <div class="custom-file">
-                    <select class="form-control select" name="secound_row_first_file" style="width: 100%;">
-                      <option value="0">Second Row First Column Image</option>
-                      <?php $files = App\Models\File::get()->all(); ?>
-                      @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php $file_match = (isset($setting->secound_row_first_file) ? $setting->secound_row_first_file : 0 ); if($file->id == $file_match) { echo "selected"; } ?>>{{ $file->file_name }}</option>
-                      @endforeach
+                  <label for="exampleInputPassword1">Second Row First Column Category</label>
+                    <select class="form-control" name="secound_row_first_col_category">
+                        <option value="0">Second Row First Column Category</option>
+                        <?php $categories = App\Models\Category::get()->all(); ?>
+                        @foreach($categories as $category)
+                          <option value="{{ $category->id }}" <?php if(isset($setting->secound_row_first_file) && $setting->secound_row_first_file == $category->id) { echo "selected"; } ?> >{{ $category->name }}</option>
+                        @endforeach
                     </select>
+                      @error('secound_row_first_col_category')
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <!-- <span class="fas fa-envelope"> -->
+                            {{ $errors->first('secound_row_first_col_category') }}
+                            <!-- </span> -->
+                          </div>
+                        </div>
+                      @enderror
                     </div>
                     @error('secound_row_first_file')
                         <div class="input-group-append">
@@ -158,19 +166,19 @@
                           </div>
                         </div>
                     @enderror
-                  </div> <div class="form-group">
+                  <!-- </div> <div class="form-group">
                     <label for="name">Second Row First Link</label>
                     <input type="text" name="secound_row_first_link" value="{{ isset($setting->secound_row_first_link) ? $setting->secound_row_first_link : ''}}"  class="form-control" id="facebook">
                     @error('secound_row_first_link')
                       <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text"> -->
                           <!-- <span class="fas fa-envelope"> -->
-                          {{ $errors->first('secound_row_first_link') }}
+                          <!-- {{ $errors->first('secound_row_first_link') }} -->
                           <!-- </span> -->
-                        </div>
+                        <!-- </div>
                       </div>
                     @enderror
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select Second Row Second column Category</label>
                     <select class="form-control" name="secound_row_secound_col_category">

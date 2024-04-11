@@ -111,14 +111,17 @@
         <?php //die(); ?>
         <div class="clearfix"></div>
         <div class="container">
-        <?php $file = App\Models\File::where('id', $setting->secound_row_first_file)->first(); ?>
+        <?php 
+        $blog = App\Models\Blog::where('categories_ids', $setting->secound_row_first_file)->first(); 
+        $file = App\Models\File::where('id', $blog->image_ids)->first(); 
+        ?>
             <div class="nmfcardlistsec mt-4">
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="nmf-singlecard">
-                            <a href="{{ asset($setting->secound_row_first_link) }}">
+                            <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                 <h3 class="a_link">
-                                    {{ $setting->secound_row_first_title }}
+                                    {{ $blog->name }}
                                 </h3>
                                 <div class="nmf-singlecard-img link"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
                             </a>
