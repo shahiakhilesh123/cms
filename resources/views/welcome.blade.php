@@ -186,10 +186,12 @@
             <div class="nmf-mainmanoranjansec">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="owl-carousel nmf-horoscope-sec 2nd">
                         <?php
-                        $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
-                        $fourth_row_first_image = isset($file->file_name) ? $file->file_name : '';
+                          $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
+                          $fourth_row_first_image = isset($file->file_name) ? $file->file_name : ''; 
+                        ?>
+                        <div class="owl-carousel nmf-horoscope-sec 2nd" style="background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
+                        <?php
                         $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fourth_row_first_cat."',categories_ids)")->whereNull('link')->get(); 
                         ?>
                         @foreach($blogs as $blog)
@@ -206,7 +208,7 @@
                                             <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $matches[0] }}...</h5>
                                             </div>
                                                 <!-- <img src="{{ asset('file').'/'.$ff }}"  style="width: 100%; height: 358px;"/> -->
-                                            </div>
+                                             </div>
                                             <!-- <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p>-->
                                         </a> 
                                     </div>
