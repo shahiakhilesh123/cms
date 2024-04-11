@@ -145,7 +145,7 @@
                       <option value="0">Second Row First Column Image</option>
                       <?php $files = App\Models\File::get()->all(); ?>
                       @foreach($files as $file)
-                          <option value="{{ $file->id }}" <?php if($file->id == isset($setting->secound_row_first_file) ? $setting->secound_row_first_file : '' ) { echo "selected"; } ?>>{{ $file->file_name }}</option>
+                          <option value="{{ $file->id }}" <?php if($file->id == (isset($setting->secound_row_first_file) ? $setting->secound_row_first_file : '' )) { echo "selected"; } ?>>{{ $file->file_name }}</option>
                       @endforeach
                     </select>
                     </div>
