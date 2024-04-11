@@ -252,16 +252,22 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="name">Fourth Row First Column Link</label>
-                    <input type="text" name="fourth_row_first_link" value="{{ isset($setting->fourth_row_first_link) ? $setting->fourth_row_first_link : '' }}" class="form-control" id="facebook">
-                    @error('fourth_row_first_link')
-                      <div class="input-group-append">
-                        <div class="input-group-text">
-                          <!-- <span class="fas fa-envelope"> -->
-                          {{ $errors->first('fourth_row_first_link') }}
-                          <!-- </span> -->
+                    <label for="name">Fourth Row First Column Category</label>
+                    <select class="form-control select" name="fourth_row_first_cat" style="width: 100%;">
+                      <option value="0">Fourth Row First Column Category</option>
+                      <?php $categories = App\Models\Category::get()->all(); ?>
+                        @foreach($categories as $category)
+                          <option value="{{ $category->id }}" <?php if(isset($setting->fourth_row_first_cat) && $setting->fourth_row_first_cat == $category->id){ echo "selected"; } ?>>{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('fourth_row_first_image')
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <!-- <span class="fas fa-envelope"> -->
+                            {{ $errors->first('fourth_row_first_image') }}
+                            <!-- </span> -->
+                          </div>
                         </div>
-                      </div>
                     @enderror
                   </div>
                   <div class="form-group">

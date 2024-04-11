@@ -68,8 +68,8 @@
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
             <div class="nmf-titlenewssec">
                 <div class="nmf-titlebanner" style="background:url({{ asset('file').'/'.$ff }}) !important;">
-                    <h2 class="a_link">{{ isset($slide->name) ? $slide->name : '' }}</h2>
-                    <p class="a_link">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
+                    <h2 class="a_link"><a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $slide->eng_name); ?>">{{ isset($slide->name) ? $slide->name : '' }}</a></h2>
+                    <p class="a_link"><a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $slide->eng_name); ?>">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</a></p>
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
@@ -90,7 +90,7 @@
                                 <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="width: 140px;">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
-                                <a href="{{ $blog->link }}" class="blog_icon">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>" class="blog_icon">
                                     <i class="fa fa-video-camera"></i>
                                 </a>
                                 </div>
@@ -162,7 +162,7 @@
             </div>
             <div class="col-12 col-md-12">
                 <div class="nmf-featurespost mt-4">
-                    <div class="owl-carousel">
+                    <div class="owl-carousel 1st">
                     <?php
                             $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->whereNull('link')->get(); 
                     ?>
@@ -186,11 +186,32 @@
             <div class="nmf-mainmanoranjansec">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                    <?php $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
-                    $ff = isset($file->file_name) ? $file->file_name : '';
-                    ?>
-                        <div class="nmf-horoscope-sec link" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-                            <!-- <h2 style="color: #ffffff; ">{{ isset($blog->name) ? $blog->name : '' }}</h2> -->
+                        <div class="owl-carousel nmf-horoscope-sec 2nd">
+                        <?php
+                        $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
+                        $fourth_row_first_image = isset($file->file_name) ? $file->file_name : '';
+                        $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fourth_row_first_cat."',categories_ids)")->whereNull('link')->get(); 
+                        ?>
+                        @foreach($blogs as $blog)
+                            <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                            $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
+                            $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
+                            ?>
+                            <div class="item">
+                                    <div class="nmf-featurespost-item" style="padding: 0px 0px;">
+                                        <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
+                                            <div class="featurespost-img link">
+                                            <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
+                                            <img src="{{ asset('file').'/'.$ff }}" style="margin-top: 15%; width:100px; height: 100px;"/>
+                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $matches[0] }}...</h5>
+                                            </div>
+                                                <!-- <img src="{{ asset('file').'/'.$ff }}"  style="width: 100%; height: 358px;"/> -->
+                                            </div>
+                                            <!-- <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p>-->
+                                        </a> 
+                                    </div>
+                            </div>
+                        @endforeach
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
@@ -231,4 +252,46 @@
                     </div>
                 </div>
         </div>
+        <script>
+        $(document).ready(function () {
+            $('.1st').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                autoplay: true, // Add autoplay option
+                autoplayTimeout: 5000, // Adjust autoplay speed (milliseconds)
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.2nd').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                autoplay: true, // Add autoplay option
+                autoplayTimeout: 5000, // Adjust autoplay speed (milliseconds)
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
 @endsection
