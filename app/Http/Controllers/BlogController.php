@@ -13,12 +13,12 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::get()->all();
+        $blogs = Blog::orderBy('id', 'DESC')->get()->all();
         return view('admin/blogList')->with('blogs', $blogs);
     }
     public function addBlog()
     {
-        $file = File::get()->all();
+        $file = File::orderBy('id', 'DESC')->get()->all();
         $categories = Category::get()->all();
         $state = State::get()->all();
         $district = District::get()->all();
@@ -63,7 +63,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blogs = Blog::where('id', $id)->first();
-        $file = File::get()->all();
+        $file = File::orderBy('id', 'DESC')->get()->all();
         $categories = Category::get()->all();
         $state = State::get()->all();
         $district = District::get()->all();

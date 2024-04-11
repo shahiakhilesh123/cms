@@ -192,7 +192,7 @@
                         ?>
                         <div class="owl-carousel nmf-horoscope-sec 2nd" style="background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
                         <?php
-                        $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fourth_row_first_cat."',categories_ids)")->whereNull('link')->get(); 
+                        $blogs = App\Models\Blog::where("categories_ids",$setting->fourth_row_first_cat)->get(); 
                         ?>
                         @foreach($blogs as $blog)
                             <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
