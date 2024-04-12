@@ -108,7 +108,48 @@
         multiple: true
     });
     // Summernote
-    $('#summernote').summernote()
+    //$('#summernote').summernote()
+
+    $('#summernote').summernote({
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'clear']],
+        ['fontname', ['fontname']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'hr']],
+        ['view', ['fullscreen', 'codeview']],
+        ['mybutton', ['myVideo']] // custom button
+      ],
+
+      buttons: {
+        myVideo: function(context) {
+          var ui = $.summernote.ui;
+          var button = ui.button({
+            contents: '<i class="fas fa-video"></i>',
+            tooltip: 'video',
+            click: function() {
+              var div = document.createElement('div');
+              div.classList.add('embed-container');
+              var iframe = document.createElement('iframe');
+              var url = prompt('Enter video url:');
+              if (url !== null) {
+                iframe.src = url;
+                iframe.setAttribute('frameborder', 0);
+                iframe.setAttribute('width', '100%');
+                iframe.setAttribute('allowfullscreen', true);
+                div.appendChild(iframe);
+                context.invoke('editor.insertNode', div);
+              }
+            }
+          });
+
+          return button.render();
+        }
+      }
+    });
 
     // CodeMirror
     CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
