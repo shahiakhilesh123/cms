@@ -46,10 +46,10 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th style="width:200px;">Post Name</th>
-                      <th style="width:200px;">Post Link</th>
-                      <th></th>
+                      <th class="col-md-1">ID</th>
+                      <th class="col-md-4">Post Name</th>
+                      <th class="col-md-4">Post Link</th>
+                      <th class="col-md-3"></th>
                     </tr>
                   </thead>
                   <tbody>
