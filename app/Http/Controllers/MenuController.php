@@ -18,7 +18,7 @@ class MenuController extends Controller
     }
 
     public function MenuList(Request $request){
-        $data = Menu::orderBy('id', 'DESC')->paginate(10);
+        $data = Menu::all();
         return view('admin/menuList')->with('menus', $data);
     } 
 

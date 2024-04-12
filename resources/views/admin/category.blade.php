@@ -76,9 +76,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card-footer clearfix">
-              {{ $categories->links() }}
-              </div>
+              
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

@@ -79,9 +79,6 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card-footer clearfix">
-              {{ $states->links() }}
-              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
