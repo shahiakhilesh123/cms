@@ -47,8 +47,8 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Post Name</th>
-                      <th>Post Link</th>
+                      <th style="width:200px;">Post Name</th>
+                      <th style="width:200px;">Post Link</th>
                       <th></th>
                     </tr>
                   </thead>
