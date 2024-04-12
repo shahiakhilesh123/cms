@@ -46,20 +46,20 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th class="col-md-1">ID</th>
-                      <th class="col-md-4">Post Name</th>
-                      <th class="col-md-4">Post Link</th>
-                      <th class="col-md-3"></th>
+                      <th>ID</th>
+                      <th>Post Name</th>
+                      <th>Post Link</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     @if(count($blogs) > 0)
                       @foreach($blogs as $blog)
                       <tr>
-                        <td col-md-1>{{ $blog->id }}</td>
-                        <td col-md-3 style="white-space: pre-wrap; word-wrap: break-word;">{{ $blog->name }}</td>
-                        <td col-md-5>{{ $blog->link }}</td>                      
-                        <td col-md-3>
+                        <td >{{ $blog->id }}</td>
+                        <td style="white-space: pre-wrap; word-wrap: break-word; width: 290px;">{{ $blog->name }}</td>
+                        <td >{{ $blog->link }}</td>                      
+                        <td >
                           <!-- <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a> -->
                           <a href="{{ asset('posts/edit') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                         </td>
