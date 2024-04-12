@@ -75,6 +75,9 @@
                   </tbody>
                 </table>
               </div>
+              <div class="card-footer clearfix">
+              {{ $districts->links() }}
+              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

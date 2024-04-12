@@ -9,7 +9,7 @@ class StateController extends Controller
 {
     public function index()
     {
-        $states = State::get()->all();
+        $states = State::paginate(10);
         return view('admin/state')->with('states', $states);
     }
     public function add()

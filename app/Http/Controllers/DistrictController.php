@@ -10,7 +10,7 @@ class DistrictController extends Controller
 {
     public function index()
     {
-        return view('admin/district')->with('districts', District::select('districts.id', 'districts.name', 'states.name as state_name')->JoinState()->get()->all());
+        return view('admin/district')->with('districts', District::select('districts.id', 'districts.name', 'states.name as state_name')->JoinState()->paginate(10));
     }
     public function add()
     {
