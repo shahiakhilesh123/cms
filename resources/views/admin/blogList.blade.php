@@ -57,8 +57,8 @@
                       @foreach($blogs as $blog)
                       <tr>
                         <td>{{ $blog->id }}</td>
-                        <td style="width:30%;">{{ $blog->name }}</td>
-                        <td style="width:30%;">{{ $blog->link }}</td>                      
+                        <td style="width:200px;">{{ $blog->name }}</td>
+                        <td style="width:200px;">{{ $blog->link }}</td>                      
                         <td>
                           <!-- <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a> -->
                           <a href="{{ asset('posts/edit') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
