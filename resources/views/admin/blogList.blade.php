@@ -56,10 +56,10 @@
                     @if(count($blogs) > 0)
                       @foreach($blogs as $blog)
                       <tr>
-                        <td>{{ $blog->id }}</td>
-                        <td style="width:200px;">{{ $blog->name }}</td>
-                        <td style="width:200px;">{{ $blog->link }}</td>                      
-                        <td>
+                        <td col-md-1>{{ $blog->id }}</td>
+                        <td col-md-4>{{ $blog->name }}</td>
+                        <td col-md-4>{{ $blog->link }}</td>                      
+                        <td col-md-3>
                           <!-- <a href="{{ asset('blogs') }}/{{$blog->id}}/{{ str_replace(" ","-",$blog->name) }}" target="_blank"><i class="fas fa-copy"></i></a> -->
                           <a href="{{ asset('posts/edit') }}/{{$blog->id}}"><i class="fas fa-edit"></i></a>
                         </td>
