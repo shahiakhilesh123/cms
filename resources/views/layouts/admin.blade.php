@@ -139,6 +139,7 @@
                 iframe.src = url;
                 iframe.setAttribute('frameborder', 0);
                 iframe.setAttribute('width', '100%');
+                iframe.setAttribute('height', '400px');
                 iframe.setAttribute('allowfullscreen', true);
                 div.appendChild(iframe);
                 context.invoke('editor.insertNode', div);
