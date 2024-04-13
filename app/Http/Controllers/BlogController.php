@@ -13,7 +13,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->get()->all();
+        $blogs = Blog::orderBy('id', 'DESC')->paginate(20);
+        $blogs->setPath(asset('/posts'));
         return view('admin/blogList')->with('blogs', $blogs);
     }
     public function addBlog()
