@@ -17,7 +17,7 @@ class BlogController extends Controller
         if (isset($request->category)) {
             $blogs->where('categories_ids', $request->category);
         }
-        $blogs = $blogs->paginate(2);
+        $blogs = $blogs->paginate(20);
         if (isset($request->category)) {
             $category = $request->category;
             $blogs->setPath(asset('/posts').'?category='.$request->category);
