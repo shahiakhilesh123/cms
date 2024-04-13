@@ -60,7 +60,7 @@
                                             ?>
                                             <div class="item">
                                                 <div class="nmf-featurespost-item">
-                                                    <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $relate->eng_name); ?>">
+                                                    <a href="#">
                                                         <div class="media">
                                                             <img class="d-flex mr-3" src="{{ asset('file').'/'.$ff }}" style="height:84px;" alt="post-image">
                                                             <div class="media-body">
@@ -93,7 +93,7 @@
                                         $ff = isset($latest->images->file_name) ? $latest->images->file_name : (isset($latest->thumbnail->file_name) ? $latest->thumbnail->file_name : '');
                                         ?>
                                         <div class="nmf-lsctctergy-item">
-                                            <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $latest->eng_name); ?>">
+                                            <a href="#">
                                                 <div class="media">
                                                     <img class="d-flex mr-3" src="{{ asset('file').'/'.$ff }}" style="height:84px; width:94px;" alt="post-image">
                                                     <div class="media-body">
