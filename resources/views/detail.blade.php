@@ -35,9 +35,7 @@
                                     <p class="perpost=article">
                                         {{ $data['blog']->sort_description }}...
                                         <?php
-                                        $string = "This is a long string that we want to cut into chunks.";
-                                        $length = 150; // Number of characters in each chunk
-                                        $chunks = str_split($string, $length); 
+                                        $chunks = str_split($data['blog']->sort_description, 70); 
                                         echo $chunks[0];
                                         ?>
                                     </p>
