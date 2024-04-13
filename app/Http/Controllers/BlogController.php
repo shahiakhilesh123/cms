@@ -48,6 +48,7 @@ class BlogController extends Controller
             'name' => $request->name,
             'eng_name' => $request->eng_name,
             'link' => $request->link,
+            'author' => $request->author,
             'home_page_status' => $home_page_status,
             'header_sec' => $header_sec,
             'sort_description' => $request->sort_desc,
@@ -92,6 +93,7 @@ class BlogController extends Controller
         Blog::where('id', $id)->update([
             'name' => $request->name,
             'eng_name' => $request->eng_name,
+            'author' => $request->author,
             'link' => $request->link,
             'home_page_status' => $home_page_status,
             'header_sec' => $header_sec,

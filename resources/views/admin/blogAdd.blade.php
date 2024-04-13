@@ -62,6 +62,19 @@
                     @enderror
                   </div>
                   <div class="form-group">
+                    <label for="name">Author Name</label>
+                    <input type="text" name="author" class="form-control" id="author">
+                    @error('author')
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <!-- <span class="fas fa-envelope"> -->
+                          {{ $errors->first('author') }}
+                          <!-- </span> -->
+                        </div>
+                      </div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
                     <label for="name">Keyword</label>
                     <input type="text" name="keyword" class="form-control" id="keyword">
                     @error('keyword')
