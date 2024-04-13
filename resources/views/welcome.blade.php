@@ -132,7 +132,7 @@
                         <div class="nmf-postcrd">
                             <div class="row">
                     <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->secound_row_secound_col_category."',categories_ids)")->whereNull('link')->get(); 
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->secound_row_secound_col_category."',categories_ids)")->limit(6)->get(); 
                     
                     ?>
                     @foreach($blogs as $blog)
@@ -167,7 +167,7 @@
                 <div class="nmf-featurespost mt-4">
                     <div class="owl-carousel 1st">
                     <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->whereNull('link')->get(); 
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->limit(8)->get(); 
                     ?>
                     @foreach($blogs as $blog)
                     <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
@@ -195,7 +195,7 @@
                         ?>
                         <div class="owl-carousel nmf-horoscope-sec 2nd" style="background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
                         <?php
-                        $blogs = App\Models\Blog::where("categories_ids",$setting->fourth_row_first_cat)->get(); 
+                        $blogs = App\Models\Blog::where("categories_ids",$setting->fourth_row_first_cat)->limit(10)->get(); 
                         ?>
                         @foreach($blogs as $blog)
                             <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);

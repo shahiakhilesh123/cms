@@ -34,6 +34,12 @@
                                     <h2 class=" font-25 font-600 ">{{ $data['blog']->name }}</h2>
                                     <p class="perpost=article">
                                         {{ $data['blog']->sort_description }}...
+                                        <?php
+                                        $string = "This is a long string that we want to cut into chunks.";
+                                        $length = 150; // Number of characters in each chunk
+                                        $chunks = str_split($string, $length); 
+                                        echo $chunks[0];
+                                        ?>
                                     </p>
                                 </div>
                                 <figure class="nestednmf-figure">
