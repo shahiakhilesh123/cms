@@ -77,7 +77,7 @@
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
                         //preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
-                        $matches = str_split($data['blog']->name, 70); 
+                        $matches = str_split($blog->name, 70); 
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
