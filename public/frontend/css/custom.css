@@ -169,7 +169,7 @@ img.nmf-logo {position: relative;top: 0;left: 0;width: 50px;}
 .nmf-header .nmf-othrlist .media {width: 40vw;}
 .nmf-megaclass .navbar-expand-sm .navbar-nav{padding-left:0px;}
 .nmf-megaclass .navbar-expand-sm .navbar-nav {flex-direction: column;padding-left: 0;}
-.nmf-titlebanner h2{font-size:25px;}
+.nmf-titlebanner h2{font-size:25px; padding:0 15px}
 .nmf-herosec{ flex-direction:column;}
 .nmf-titlenewssec {width: 100%;}
 .nmf-relatedvidos .nmf-othrlist .media {width: 80vw;}
@@ -182,6 +182,10 @@ img.nmf-logo {position: relative;top: 0;left: 0;width: 50px;}
 .nmf-btmsponser{width:100%; padding:5px 0;}
 .nmf-btmsponser .nmf-othrlist .media{width:45vw;}
 .nmf-footer{padding-bottom:0px;}
-.nmf-titlebanner p {font-size: 12px;padding: 5px 15px;color: #ffffff;}
+.nmf-titlebanner p {font-size: 14px;padding: 5px 15px;color: #ffffff;}
 .nmf-othrlist {width: 100%;}
+.nmf-titlebanner{
+    background-size: cover !important;
+    object-position: center !important;
+    background-position: center center !important;}
 }
