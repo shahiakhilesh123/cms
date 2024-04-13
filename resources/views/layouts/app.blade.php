@@ -2,7 +2,7 @@
 <html lang="en" class="h-100" data-bs-theme="auto">
 <head>
     <?php $setting = App\Models\Setting::where('id', 1)->first(); ?>
-    <script src="../assets/js/color-modes.js"></script>
+    <!-- <script src="../assets/js/color-modes.js"></script> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ isset($setting->meta_description) ? $setting->meta_description : '' }}">
@@ -15,6 +15,8 @@
     <!-- Include Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="nmf-body">
     <div class="nmf-parenthead">
@@ -95,7 +97,7 @@
                         </div>
                         <nav class="navbar navbar-expand-sm" aria-label="Third navbar example">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#"><img class="nmf-logo" src="{{ asset('frontend/images/logo.png') }}" /></a>
+                                <a class="navbar-brand" href="{{ asset('/') }}"><img class="nmf-logo" src="{{ asset('frontend/images/logo.png') }}" /></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
@@ -111,7 +113,7 @@
                                         @foreach($menus as $menu)
                                         <?php
                                         $subMenus = App\Models\Menu::get()->where('menu_id', $menu->id)->where('status', '1')->where('type_id', '1')->where('category_id', '2')->all(); ?>
-                                        <li class="nav-item <?php if(count($subMenus) > 0){ echo "dropdown"; } ?>">
+                                        <li class="nav-item <?php if(count($subMenus) > 0){ echo "dropdown"; } ?>" style="margin-left:20px;">
                                             <a class="{{ $menu->menu_class }} active" aria-current="page" href="<?php if(count($subMenus) > 0){ echo url().'/'.$menu->menu_link; } else { echo $menu->menu_link; } ?>">{{ $menu->menu_name }}</a>
                                         </li>
                                         @endforeach
@@ -232,35 +234,9 @@
                 </div>
             </div>
         </div>
-    </footer>    <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </footer>    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    
     <!-- Include Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: true,
-                autoplay: true, // Add autoplay option
-                autoplayTimeout: 5000, // Adjust autoplay speed (milliseconds)
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 5
-                    }
-                }
-            });
-        });
-    </script>
-
-
 </body>
 </html>

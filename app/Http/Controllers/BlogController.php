@@ -11,14 +11,30 @@ use App\Models\District;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::get()->all();
-        return view('admin/blogList')->with('blogs', $blogs);
+        $blogs = Blog::orderBy('id', 'DESC');
+        if (isset($request->title)) {
+            $blogs->Where('name', 'like', '%' .$request->title . '%');
+        }
+        if (isset($request->category)) {
+            $blogs->where('categories_ids', $request->category);
+        }
+        $blogs = $blogs->paginate(20);
+        if (isset($request->category)) {
+            $category = $request->category;
+            $title = $request->title;
+            $blogs->setPath(asset('/posts').'?category='.$request->category.'title'.$title);
+        } else {
+            $title = '';
+            $category = 0;
+            $blogs->setPath(asset('/posts'));
+        }
+        return view('admin/blogList')->with('data', ['blogs'=> $blogs, 'category'=> $category, 'title' => $title]);
     }
     public function addBlog()
     {
-        $file = File::get()->all();
+        $file = File::orderBy('id', 'DESC')->get()->all();
         $categories = Category::get()->all();
         $state = State::get()->all();
         $district = District::get()->all();
@@ -31,25 +47,10 @@ class BlogController extends Controller
             'sort_desc' => 'required|string',
             'category' => 'required',
         ]);
-        $images = [];
-        if(isset($request->images)) {
-            foreach ($request->images as $image) {
-                $images[] = $image;
-            }
-        }
-        foreach ($request->category as $category) {
-            $categories[] = $category;
-        }
-        foreach ($request->state as $state) {
-            $states[] = $state;
-        }
-        foreach ($request->district as $district) {
-            $districts[] = $district;
-        }
-        $ima = implode(',', $images);
-        $cat = implode(',', $categories);
-        $state = implode(',', $states);
-        $district = implode(',', $districts);
+        $ima = $request->images;
+        $cat = $request->category;
+        $state = $request->state;
+        $district = $request->district;
         $home_page_status = 0;
         if($request->home_page_status) {
             $home_page_status = 1;
@@ -60,7 +61,9 @@ class BlogController extends Controller
         }
         Blog::create([
             'name' => $request->name,
+            'eng_name' => $request->eng_name,
             'link' => $request->link,
+            'author' => $request->author,
             'home_page_status' => $home_page_status,
             'header_sec' => $header_sec,
             'sort_description' => $request->sort_desc,
@@ -72,12 +75,12 @@ class BlogController extends Controller
             'categories_ids' => $cat,
             'description' => $request->description,
         ]);
-        return redirect('blogs');
+        return redirect('posts');
     }
     public function edit($id)
     {
         $blogs = Blog::where('id', $id)->first();
-        $file = File::get()->all();
+        $file = File::orderBy('id', 'DESC')->get()->all();
         $categories = Category::get()->all();
         $state = State::get()->all();
         $district = District::get()->all();
@@ -90,25 +93,10 @@ class BlogController extends Controller
             'sort_desc' => 'required|string',
             'category' => 'required',
         ]);
-        $images = [];
-        if(isset($request->images)) {
-            foreach ($request->images as $image) {
-                $images[] = $image;
-            }
-        }
-        foreach ($request->category as $category) {
-            $categories[] = $category;
-        }
-        foreach ($request->state as $state) {
-            $states[] = $state;
-        }
-        foreach ($request->district as $district) {
-            $districts[] = $district;
-        }
-        $ima = implode(',', $images);
-        $cat = implode(',', $categories);
-        $state = implode(',', $states);
-        $district = implode(',', $districts);
+        $ima = $request->images;
+        $cat = $request->category;
+        $state = $request->state;
+        $district = $request->district;
         $home_page_status = 0;
         if($request->home_page_status) {
             $home_page_status = 1;
@@ -119,6 +107,8 @@ class BlogController extends Controller
         }
         Blog::where('id', $id)->update([
             'name' => $request->name,
+            'eng_name' => $request->eng_name,
+            'author' => $request->author,
             'link' => $request->link,
             'home_page_status' => $home_page_status,
             'header_sec' => $header_sec,
@@ -131,6 +121,7 @@ class BlogController extends Controller
             'categories_ids' => $cat,
             'description' => $request->description,
         ]);
-        return redirect('blogs');
+        return redirect('posts');
     }
+   
 }

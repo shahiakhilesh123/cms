@@ -18,7 +18,8 @@ class MenuController extends Controller
     }
 
     public function MenuList(Request $request){
-        $data = Menu::all();
+        $data = Menu::paginate(20);
+        $data->setPath(asset('/menu'));
         return view('admin/menuList')->with('menus', $data);
     } 
 

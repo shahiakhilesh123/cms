@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::get()->all();
+        $categories = Category::paginate(20);
+        $categories->setPath(asset('/categories'));
         return view('admin/category')->with('categories', $categories);
     }
 

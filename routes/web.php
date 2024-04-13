@@ -65,6 +65,7 @@ Route::prefix('/district')->group(function () {
     Route::post('/edit/{id}', [App\Http\Controllers\DistrictController::class, 'editSave'])->name('districtEdit');
 });
 Route::get('/test',[App\Http\Controllers\TestCOntroller::class, 'index'])->name('test');
+Route::get('/detail',[App\Http\Controllers\TestController::class, 'detail'])->name('detail');
 Route::prefix('/page')->group(function () {
     Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('PageList');
     Route::get('/add', [App\Http\Controllers\PagesController::class, 'add'])->name('addPage');
@@ -77,6 +78,7 @@ Route::prefix('page/sequence')->group(function () {
     Route::get('/add', [App\Http\Controllers\PageSequenceController::class, 'add'])->name('addSequence');
     Route::post('/add', [App\Http\Controllers\PageSequenceController::class, 'save'])->name('sequenceAdd');
 });
-Route::get('detail', function () {
-    return view('detail');
-});
+Route::get('/story/{name}', [App\Http\Controllers\StoryController::class, 'showStory'])->name('showStory');
+// Route::get('detail', function () {
+//     return view('detail');
+// });

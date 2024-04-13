@@ -11,17 +11,17 @@
     ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .media:hover, .link:hover {background-color: #48483d;}
+        .img_media:hover, .link:hover {
+            /* background-color: #48483d; */
+            filter: brightness(0.6);
+            cursor: pointer;
+        }
         .blog_container {
         position: relative;
-        width: 100%;
-        max-width: 400px;
         }
 
         .blog_image {
         display: block;
-        width: 100%;
-        height: auto;
         }
 
         .blog_overlay {
@@ -48,22 +48,35 @@
         -ms-transform: translate(-50%, -50%);
         text-align: center;
         }
-
-        .fa-video-camera:hover {color: #eee;}
+        .a_link:hover {
+            text-decoration: underline; 
+            cursor: pointer;
+        }
+        .fa-video-camera:hover {
+        color: #eee;
+        }
+        a {
+            color: rgb(246 248 250);
+            text-decoration: none;
+        }
+        .story{
+            color: black;
+            text-decoration: none;
+        }
     </style>
     <div class="nmf-herosec">
             <div class="nmf-bkrng-news"><img src="{{ asset('frontend/images/bkng-news.jpg') }}" /></div>
             <div class="nmf-titlenewssec">
                 <div class="nmf-titlebanner" style="background:url({{ asset('file').'/'.$ff }}) !important;">
-                    <h2 class="link">{{ isset($slide->name) ? $slide->name : '' }}</h2>
-                    <p class="link">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</p>
+                    <h2 class="a_link"><a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $slide->eng_name); ?>">{{ isset($slide->name) ? $slide->name : '' }}</a></h2>
+                    <p class="a_link"><a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $slide->eng_name); ?>">{{ isset($slide->sort_description) ? $slide->sort_description : '' }}</a></p>
                 </div>
                 <div class="nmf-relatedvidos">
                     <div class="nmf-toptitle">
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -72,18 +85,22 @@
                         $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                         ?>
                         <div class="nmf-othrlist">
-                            <div class="media <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
-                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="height:90px;">
+                            <div class="media">
+                                <span class="img_media link <?php if(isset($blog->link)) { echo "blog_container"; } ?>">
+                                <img class="<?php if(isset($blog->link)) { echo "blog_image"; } ?>" src="{{ asset('file').'/'.$ff }}" style="width: 140px;">
                                 <?php if(isset($blog->link)) { ?>
                                 <div class="blog_overlay">
-                                <a href="#" class="blog_icon">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>" class="blog_icon">
                                     <i class="fa fa-video-camera"></i>
                                 </a>
                                 </div>
-                                <?php } ?>
-                                <div class="media-body">
-                                    <h5 class="mt-0 font-16">{{ $matches[0]}} ...</h5>
+                                <?php } ?>    
+                                </span>
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
+                                <div class="media-body" style="width: 100%; margin-left: 5px;">
+                                    <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
                                 </div>
+                                </a>
                             </div>
                         </div>
                         @endfor
@@ -94,16 +111,19 @@
         <?php //die(); ?>
         <div class="clearfix"></div>
         <div class="container">
-        <?php $file = App\Models\File::where('id', $setting->secound_row_first_file)->first(); ?>
+        <?php 
+        $blog = App\Models\Blog::where('categories_ids', $setting->secound_row_first_file)->first(); 
+        $file = App\Models\File::where('id', $blog->image_ids)->first(); 
+        ?>
             <div class="nmfcardlistsec mt-4">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <div class="nmf-singlecard link">
-                            <a href="{{ asset($setting->secound_row_first_link) }}">
-                                <h3>
-                                    {{ $setting->secound_row_first_title }}
+                        <div class="nmf-singlecard">
+                            <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
+                                <h3 class="a_link">
+                                    {{ $blog->name }}
                                 </h3>
-                                <div class="nmf-singlecard-img"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
+                                <div class="nmf-singlecard-img link"><img src="{{ asset('file').'/'.$file->file_name }}" style="height: 229px;" /></div>
                             </a>
 
                         </div>
@@ -112,21 +132,23 @@
                         <div class="nmf-postcrd">
                             <div class="row">
                     <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->secound_row_secound_col_category."',categories_ids)")->whereNull('link')->get(); 
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->secound_row_secound_col_category."',categories_ids)")->limit(6)->get(); 
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->sort_description,$matches);
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
                                 <div class="col-12 col-md-4">
+                                <a class="story" href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="nest-postcard">
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600 link"> {{ $matches[0] }} ... </p>
+                                        <p class=" font-12 font-600 a_link"> {{ $matches[0] }} ... </p>
                                     </div>
+                                </a>
                                 </div>
                     @endforeach
                             </div>
@@ -143,21 +165,20 @@
             </div>
             <div class="col-12 col-md-12">
                 <div class="nmf-featurespost mt-4">
-                    <div class="owl-carousel">
+                    <div class="owl-carousel 1st">
                     <?php
-                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->whereNull('link')->get(); 
-                    
+                            $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->limit(8)->get(); 
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                     ?>
                         <div class="item">
-                            <div class="nmf-featurespost-item">
-                                <a href="#">
-                                    <div class="featurespost-img"><img src="{{ asset('file').'/'.$ff }}"  style="width: 243px;height: 208px;"/></div>
-                                    <div class="featurespost-tyl link"><p class="font-16 font-600"> {{ $matches[0] }} ... </p></div>
+                            <div class="nmf-featurespost-item" style="padding: 0px 0px;">
+                                <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
+                                    <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
                                 </a>
                             </div>
                         </div>
@@ -168,11 +189,34 @@
             <div class="nmf-mainmanoranjansec">
                 <div class="row">
                     <div class="col-12 col-md-4">
-                    <?php $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
-                    $ff = isset($file->file_name) ? $file->file_name : '';
-                    ?>
-                        <div class="nmf-horoscope-sec" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-                            
+                        <?php
+                          $file = App\Models\File::where('id', $setting->fourth_row_first_image)->first(); 
+                          $fourth_row_first_image = isset($file->file_name) ? $file->file_name : ''; 
+                        ?>
+                        <div class="owl-carousel nmf-horoscope-sec 2nd" style="background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
+                        <?php
+                        $blogs = App\Models\Blog::where("categories_ids",$setting->fourth_row_first_cat)->limit(10)->get(); 
+                        ?>
+                        @foreach($blogs as $blog)
+                            <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                            $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
+                            $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
+                            ?>
+                            <div class="item">
+                                    <div class="nmf-featurespost-item" style="padding: 0px 0px;">
+                                        <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
+                                            <div class="featurespost-img link">
+                                            <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
+                                            <img src="{{ asset('file').'/'.$ff }}" style="margin-top: 15%; width:100px; height: 100px;"/>
+                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $matches[0] }}...</h5>
+                                            </div>
+                                                <!-- <img src="{{ asset('file').'/'.$ff }}"  style="width: 100%; height: 358px;"/> -->
+                                             </div>
+                                            <!-- <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p>-->
+                                        </a> 
+                                    </div>
+                            </div>
+                        @endforeach
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
@@ -184,8 +228,8 @@
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
-                            <div class="manoranjansec-item" style="background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-
+                            <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
+                                    <h2 style="color: #ffffff; margin-top: 15%;">{{ isset($blog->name) ? $blog->name : '' }}</h2>
                             </div>
                         </div>
                     </div>
@@ -201,7 +245,7 @@
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
-                            <div class="nmf-featurespost"><img src="{{ asset('file').'/'.$ff }}" style="height: 282px;" /></div>
+                            <div class="nmf-featurespost link"><img src="{{ asset('file').'/'.$ff }}" style="height: 282px;" /></div>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
@@ -213,4 +257,46 @@
                     </div>
                 </div>
         </div>
+        <script>
+        $(document).ready(function () {
+            $('.1st').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                autoplay: true, // Add autoplay option
+                autoplayTimeout: 5000, // Adjust autoplay speed (milliseconds)
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.2nd').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                autoplay: true, // Add autoplay option
+                autoplayTimeout: 5000, // Adjust autoplay speed (milliseconds)
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

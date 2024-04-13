@@ -16,4 +16,12 @@ class Blog extends Model
             $join->on('page_sequences.blog_id', '=', 'blogs.id');
         });
     }
+    public function images()
+    {
+    	return $this->belongsTo('App\Models\File' ,'image_ids');
+    }
+    public function thumbnail()
+    {
+    	return $this->belongsTo('App\Models\File' ,'thumb_images');
+    }
 }
