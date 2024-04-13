@@ -150,3 +150,17 @@ figure.nestednmf-figure img {width: 100%;}
 .nmf-lsctctergy-item a:hover{color:#134393;}
 .nestednmf-lsctctergy h2 {display: flex; gap: 15px; font-size: 16px; padding: 10px 0;}
 .nmf-lsctctergy-item {padding: 0;border-bottom: 1px solid #e7e7e7;margin: 0 0 20px;padding: 0 0 15px;}
+
+/* responsive CSS*/
+@media only screen and (max-width : 767px) {
+.nmf-othrlist .media img {margin-right: 8px;width: 30px;}
+.nmf-othrlist h5 {font-size: 12px;}
+.nmf-othrlist p{font-size:10px;}
+.nmf-social{justify-content: center;}
+.nmf-social-itm img {width: 25px;}
+.nmf-canvas img {width: 25px;}
+.nmf-megalist{position:relative;}
+.nmf-canvas {position: absolute;top: 18px;}
+.nmf-megaclass nav.navbar.navbar-expand-sm {margin-left: 35px; display: flex; justify-content: space-between; width: 100%;}
+button.navbar-toggler {border-color: #ffffff; background:#ffffff;}
+}
