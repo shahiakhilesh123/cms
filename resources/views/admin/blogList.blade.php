@@ -172,9 +172,10 @@
 
                 <div class="card-tools">
                 <form>
-                  <div class="input-group input-group-sm" style="width: 400px;">                  
+                  <div class="input-group input-group-sm" style="width: 500px;">  
+                    <input class="form-control float-right" name="title" type="text" value="{{ $data['title'] }}" placeholder="Enter Title">                
                     <select name="category" class="form-control float-right">
-                      <option>Select Category</option>
+                      <option value="">Select Category</option>
                       <?php $categories = App\Models\Category::get()->all() ?>
                       @foreach($categories as $category)
                       <option value="{{ $category->id }}" <?php if($data['category'] == $category->id) { echo "selected"; }?>>{{ $category->name }}</option>

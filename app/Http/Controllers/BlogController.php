@@ -14,18 +14,23 @@ class BlogController extends Controller
     public function index(Request $request)
     {
         $blogs = Blog::orderBy('id', 'DESC');
+        if (isset($request->title)) {
+            $blogs->Where('name', 'like', '%' .$request->title . '%');
+        }
         if (isset($request->category)) {
             $blogs->where('categories_ids', $request->category);
         }
         $blogs = $blogs->paginate(20);
         if (isset($request->category)) {
             $category = $request->category;
-            $blogs->setPath(asset('/posts').'?category='.$request->category);
+            $title = $request->title;
+            $blogs->setPath(asset('/posts').'?category='.$request->category.'title'.$title);
         } else {
+            $title = '';
             $category = 0;
             $blogs->setPath(asset('/posts'));
         }
-        return view('admin/blogList')->with('data', ['blogs'=> $blogs, 'category'=> $category]);
+        return view('admin/blogList')->with('data', ['blogs'=> $blogs, 'category'=> $category, 'title' => $title]);
     }
     public function addBlog()
     {
