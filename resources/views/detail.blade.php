@@ -1,10 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+        .story{
+            color: black;
+            text-decoration: none;
+        }
+        .story:hover {
+            text-decoration: underline; 
+            cursor: pointer;
+        }
+</style>
 <main class="nmf-mainclass">
         <section class="nmf-masterdtlsection nmftheme-white">
+            <!-- </section> -->
             <div class="nmf-dtl-nested">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" style="margin-top: 21px; font-size: 25px;">
+                            <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a class="story" href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a class="story" href="/{{ str_replace(' ', '-', $data['category']->name) }}">{{ $data['category']->name }}</a></li>
+                            <!-- <li class="breadcrumb-item">District List</li> -->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
