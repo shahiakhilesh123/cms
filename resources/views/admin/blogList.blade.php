@@ -167,19 +167,29 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Post</h3>
+            <div class="card-header">
+                <h3 class="card-title">Post List</h3>
 
-                <div class="card-tool s">
-                  <div class="input-group input-group-sm float-right" style="width: 150px;">
-                    <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
-
-                    <!-- <div class="input-group-append"> -->
-                      <a href="{{ asset('posts') }}/add" class="btn btn-primary ">
+                <div class="card-tools">
+                <form>
+                  <div class="input-group input-group-sm" style="width: 400px;">                  
+                    <select name="category" class="form-control float-right">
+                      <option>Select Category</option>
+                      <?php $categories = App\Models\Category::get()->all() ?>
+                      @foreach($categories as $category)
+                      <option value="{{ $category->id }}" <?php if($data['category'] == $category->id) { echo "selected"; }?>>{{ $category->name }}</option>
+                      @endforeach
+                    </select>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                      <a href="{{ asset('/posts/add') }}" class="btn btn-default">
                         Add Post
                       </a>
-                    <!-- </div> -->
+                    </div>
                   </div>
+                  </form>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -194,8 +204,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @if(count($blogs) > 0)
-                      @foreach($blogs as $blog)
+                    @if(count($data['blogs']) > 0)
+                      @foreach($data['blogs'] as $blog)
                       <tr>
                         <td >{{ $blog->id }}</td>
                         <td style="white-space: pre-wrap; word-wrap: break-word; width: 290px;">{{ $blog->name }}</td>
@@ -215,7 +225,7 @@
                 </table>      
               </div>
               <div class="card-footer clearfix">
-              {{ $blogs->links() }}
+              {{ $data['blogs']->links() }}
               </div>
               <!-- /.card-body -->
             </div>

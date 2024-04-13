@@ -11,11 +11,21 @@ use App\Models\District;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::orderBy('id', 'DESC')->paginate(20);
-        $blogs->setPath(asset('/posts'));
-        return view('admin/blogList')->with('blogs', $blogs);
+        $blogs = Blog::orderBy('id', 'DESC');
+        if (isset($request->category)) {
+            $blogs->where('categories_ids', $request->category);
+        }
+        $blogs = $blogs->paginate(2);
+        if (isset($request->category)) {
+            $category = $request->category;
+            $blogs->setPath(asset('/posts').'?category='.$request->category);
+        } else {
+            $category = 0;
+            $blogs->setPath(asset('/posts'));
+        }
+        return view('admin/blogList')->with('data', ['blogs'=> $blogs, 'category'=> $category]);
     }
     public function addBlog()
     {
