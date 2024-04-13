@@ -156,11 +156,30 @@ figure.nestednmf-figure img {width: 100%;}
 .nmf-othrlist .media img {margin-right: 8px;width: 30px;}
 .nmf-othrlist h5 {font-size: 12px;}
 .nmf-othrlist p{font-size:10px;}
-.nmf-social{justify-content: center;}
+.nmf-social{justify-content: center; padding: 5px 0 5px; }
 .nmf-social-itm img {width: 25px;}
 .nmf-canvas img {width: 25px;}
 .nmf-megalist{position:relative;}
 .nmf-canvas {position: absolute;top: 18px;}
 .nmf-megaclass nav.navbar.navbar-expand-sm {margin-left: 35px; display: flex; justify-content: space-between; width: 100%;}
 button.navbar-toggler {border-color: #ffffff; background:#ffffff;}
+img.nmf-logo {position: relative;top: 0;left: 0;width: 50px;}
+.nmf-toptitle{margin-left:0; overflow-y: scroll;}
+.nmf-toptitle{gap:0px;}
+.nmf-header .nmf-othrlist .media {width: 40vw;}
+.nmf-megaclass .navbar-expand-sm .navbar-nav{padding-left:0px;}
+.nmf-megaclass .navbar-expand-sm .navbar-nav {flex-direction: column;padding-left: 0;}
+.nmf-titlebanner h2{font-size:25px;}
+.nmf-herosec{ flex-direction:column;}
+.nmf-titlenewssec {width: 100%;}
+.nmf-relatedvidos .nmf-othrlist .media {width: 80vw;}
+.nmf-relatedvidos .nmf-othrlist .media img {width: 70px;}
+.nmf-bkrng-news {width: 100%;}
+.nmfcardlistsec {margin: 10px 0 !important;}
+.nmf-singlecard h3{font-size:16px;}
+.nmf-qklinks-inner {display: flex; gap: 10px; justify-content: center; padding: 10px 15px; flex-direction: column;}
+.nmf-sm {gap: 25px; align-items: flex-start; flex-direction: column; padding: 0 15px;}
+.nmf-btmsponser{width:100%; padding:5px 0;}
+.nmf-btmsponser .nmf-othrlist .media{width:45vw;}
+.nmf-footer{padding-bottom:0px;}
 }
