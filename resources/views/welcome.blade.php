@@ -175,15 +175,15 @@
                     @foreach($blogs as $blog)
                     <?php 
                     //preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
-                    $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 70) . '...' : $blog->name;
+                    $truncated = substr($blog->name, 0, 90) . '...';
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                     ?>
-                        <div class="item">
+                        <div class="item" style="height:82px;">
                             <div class="nmf-featurespost-item" style="padding: 0px 0px;">
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $truncated }} </p></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> <?php echo $truncated; ?> </p></div>
                                 </a>
                             </div>
                         </div>
