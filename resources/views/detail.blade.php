@@ -93,7 +93,7 @@
                                     <div class="nmf-lsctctergy">
                                         @foreach($data['latests'] as $latest)
                                         <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$latest->sort_description,$matches); 
-                                        if($latest->sort_description == '')
+                                       // if($latest->sort_description == '')
                                         $ff = isset($latest->images->file_name) ? $latest->images->file_name : (isset($latest->thumbnail->file_name) ? $latest->thumbnail->file_name : '');
                                         ?>
                                         <div class="nmf-lsctctergy-item">
