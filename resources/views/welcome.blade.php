@@ -76,7 +76,7 @@
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 70) . '...' : $blog->name;
+                        $truncated = substr($blog->name, 0, 50) . '...';
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -98,7 +98,7 @@
                                 </span>
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                 <div class="media-body" style="width: 100%; margin-left: 5px;">
-                                    <h5 class="mt-0 font-16 a_link">{{ $truncated}}</h5>
+                                    <h5 class="mt-0 font-16 a_link"><?php echo $truncated; ?></h5>
                                 </div>
                                 </a>
                             </div>
