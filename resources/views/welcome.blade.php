@@ -183,7 +183,7 @@
                             <div class="nmf-featurespost-item" style="padding: 0px 0px;">
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> <?php echo $truncated; ?> </p></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link" style="height: 92px;"> <?php echo $truncated; ?> </p></div>
                                 </a>
                             </div>
                         </div>
