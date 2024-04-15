@@ -215,7 +215,7 @@
                                             <div class="featurespost-img link">
                                             <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
                                             <img src="{{ asset('file').'/'.$ff }}" style="margin-top: 15%; width:100px; height: 100px;"/>
-                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $truncated }}</h5>
+                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px"><?php echo $truncated; ?></h5>
                                             </div>
                                              </div>
                                         </a> 
