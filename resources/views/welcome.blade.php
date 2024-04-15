@@ -148,7 +148,7 @@
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600 a_link"> {{ $truncated }} </p>
+                                        <p class=" font-12 font-600 a_link"> <?php echo $truncated; ?> </p>
                                     </div>
                                 </a>
                                 </div>
