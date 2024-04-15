@@ -144,7 +144,7 @@
                     ?>
                                 <div class="col-12 col-md-4">
                                 <a class="story" href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
-                                    <div class="nest-postcard">
+                                    <div class="nest-postcard" style="height: 95%;">
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
