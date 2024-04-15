@@ -138,7 +138,7 @@
                     @foreach($blogs as $blog)
                     <?php 
                     //preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
-                    $truncated = substr($blog->name, 0, 80) . '...';
+                    $truncated = substr($blog->name, 0, 85) . '...';
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
