@@ -76,7 +76,7 @@
                         @for($i = 1; $i < count($pageSequence)-1; $i++)
                         <?php
                         $blog = App\Models\Blog::where('id', $pageSequence[$i]['blog_id'])->first(); 
-                        preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
+                        $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 70) . '...' : $blog->name;
                         if(isset($blog->link)) {
                             $blog_file = App\Models\File::where("id",$blog->thumb_images)->first();
                         } else {
@@ -98,7 +98,7 @@
                                 </span>
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                 <div class="media-body" style="width: 100%; margin-left: 5px;">
-                                    <h5 class="mt-0 font-16 a_link">{{ $matches[0]}} ...</h5>
+                                    <h5 class="mt-0 font-16 a_link">{{ $truncated}}</h5>
                                 </div>
                                 </a>
                             </div>
@@ -136,7 +136,9 @@
                     
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
+                    <?php 
+                    //preg_match('#^([^.!?\s]*[\.!?\s]+){0,11}#',$blog->name,$matches);
+                    $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 50) . '...' : $blog->name;
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first();
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';  
                     ?>
@@ -146,7 +148,7 @@
                                         <div class="nest-postcard-img link">
                                             <img src="{{ asset('file').'/'.$ff }}" style="height:82px;" />
                                         </div>
-                                        <p class=" font-12 font-600 a_link"> {{ $matches[0] }} ... </p>
+                                        <p class=" font-12 font-600 a_link"> {{ $truncated }} </p>
                                     </div>
                                 </a>
                                 </div>
@@ -170,7 +172,9 @@
                             $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->third_row_category."',categories_ids)")->limit(8)->get(); 
                     ?>
                     @foreach($blogs as $blog)
-                    <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
+                    <?php 
+                    //preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->name,$matches);
+                    $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 70) . '...' : $blog->name;
                     $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                     $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                     ?>
@@ -178,7 +182,7 @@
                             <div class="nmf-featurespost-item" style="padding: 0px 0px;">
                                 <a href="{{ asset('story') }}/<?php echo str_replace(' ', '-', $blog->eng_name); ?>">
                                     <div class="featurespost-img link"><img src="{{ asset('file').'/'.$ff }}"  style="width: 100%;height: 208px;"/></div>
-                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p></div>
+                                    <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $truncated }} </p></div>
                                 </a>
                             </div>
                         </div>
@@ -198,7 +202,9 @@
                         $blogs = App\Models\Blog::where("categories_ids",$setting->fourth_row_first_cat)->limit(10)->get(); 
                         ?>
                         @foreach($blogs as $blog)
-                            <?php preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                            <?php 
+                            //preg_match('#^([^.!?\s]*[\.!?\s]+){0,18}#',$blog->sort_description,$matches);
+                            $truncated = (strlen($blog->name) > 20) ? substr($blog->name, 0, 70) . '...' : $blog->name;
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blog->image_ids."')")->first(); 
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
@@ -208,11 +214,9 @@
                                             <div class="featurespost-img link">
                                             <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$fourth_row_first_image }}); background-repeat: no-repeat;background-size: cover;background-position: center; height:358px;">
                                             <img src="{{ asset('file').'/'.$ff }}" style="margin-top: 15%; width:100px; height: 100px;"/>
-                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $matches[0] }}...</h5>
+                                            <h5 style="color: #ffffff; margin-top: 15%; margin-left:20px">{{ $truncated }}</h5>
                                             </div>
-                                                <!-- <img src="{{ asset('file').'/'.$ff }}"  style="width: 100%; height: 358px;"/> -->
                                              </div>
-                                            <!-- <div class="featurespost-tyl"><p class="font-16 font-600 a_link"> {{ $matches[0] }} ... </p>-->
                                         </a> 
                                     </div>
                             </div>
@@ -226,10 +230,11 @@
                             <?php
                             $blogs = App\Models\Blog::whereRaw("find_in_set('".$setting->fourth_row_secound_cat."',categories_ids)")->first(); 
                             $blog_file = App\Models\File::whereRaw( "find_in_set(id, '".$blogs->image_ids."')")->first(); 
+                            $truncated = (strlen($blogs->name) > 20) ? substr($blogs->name, 0, 70) . '...' : $blogs->name;
                             $ff = isset($blog_file->file_name) ? $blog_file->file_name : '';
                             ?>
                             <div class="manoranjansec-item nmf-titlebanner a_link" style="color: #ffffff; background:url({{ asset('file').'/'.$ff }}); background-repeat: no-repeat;background-size: cover;background-position: center;">
-                                    <h2 style="color: #ffffff; margin-top: 15%;">{{ isset($blog->name) ? $blog->name : '' }}</h2>
+                                    <h2 style="color: #ffffff; margin-top: 15%;">{{ $truncated }}</h2>
                             </div>
                         </div>
                     </div>

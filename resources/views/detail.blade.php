@@ -17,10 +17,10 @@
             <div class="nmf-dtl-nested">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12" style="margin-top: 21px; font-size: 25px;">
+                        <div class="col-sm-12" style="margin-top: 21px; font-size: 22px;">
                             <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a class="story" href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a class="story" href="/{{ str_replace(' ', '-', $data['category']->name) }}">{{ $data['category']->name }}</a></li>
+                            <li class="breadcrumb-item"><a style="text-decoration: none;" class="" href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a style="text-decoration: none;" class="" href="/{{ str_replace(' ', '-', $data['category']->name) }}">{{ $data['category']->name }}</a></li>
                             <!-- <li class="breadcrumb-item">District List</li> -->
                             </ol>
                         </div>
